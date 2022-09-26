@@ -46,6 +46,8 @@ export const Navbar = () => {
             navigate('/author')
         }else if(el === "Genre Master"){
             navigate('/genre')
+        }else if (el === "Language Master"){
+            navigate('/language')
         }
     }
     

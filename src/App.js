@@ -4,6 +4,7 @@ import { Dashboard } from './components/dashboard/Dashboard';
 import { Author } from './components/master/Author';
 import { Category } from './components/master/Category';
 import { Genre } from './components/master/Genre';
+import { Language } from './components/master/Language';
 import { Member } from './components/member/Member';
 import { Navbar } from './components/navbar/Navbar';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path='/category' element={<Category/>}></Route>
           <Route path='/genre' element={<Genre/>}></Route>
           <Route path='/author' element={<Author/>}></Route>
+          <Route path='/language' element={<Language/>}></Route>
         </Routes>
       </div>
     </div>
