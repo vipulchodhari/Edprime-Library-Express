@@ -21,20 +21,34 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import Collapse from '@mui/material/Collapse';
 import '../../styles/navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 export const Navbar = () => {
+    let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master", 
+                  "Class Master", "Subject Master", "Membership Plans", "Location Master"]
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
+    const navigate = useNavigate()
     const handleClick = () => {
         setOpenM(!openM);
-        setOpenS(!openS);
+        setOpenS(false)
     };
     const handleClickSec = () => {
-        setOpenS(!openS);
+        setOpenS(!openS)
     };
+    const handleNavigate = (el) => {
+        // console.log("receive end point", el)
+        if(el === "Category List"){
+            navigate('/category')
+        }else if(el === "Author Master"){
+            navigate('/author')
+        }else if(el === "Genre Master"){
+            navigate('/genre')
+        }
+    }
+    
     return <div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -61,7 +75,7 @@ export const Navbar = () => {
                 <Toolbar />
                 <Divider />
                 <List>
-                    {/* <Link to='/' className='link-decoration'> */}
+                    <Link to='/' className='link-decoration'>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -70,7 +84,7 @@ export const Navbar = () => {
                             <ListItemText className='navbar-icon-text' primary='Dashboard' />
                         </ListItemButton>
                     </ListItem>
-                    {/* </Link> */}
+                    </Link>
                     {/* <Link to='/books' className='link-decoration'> */}
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -82,14 +96,14 @@ export const Navbar = () => {
                     </ListItem>
                     {/* </Link> */}
                     {/* <Link to="/author" className='link-decoration'> */}
-                    <ListItem disablePadding>
+                    {/* <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
                                 <PersonIcon className='navbar-icon d-icon3' />
                             </ListItemIcon>
                             <ListItemText className='navbar-icon-text' primary='Author' />
                         </ListItemButton>
-                    </ListItem>
+                    </ListItem> */}
                     {/* </Link> */}
                     <Link to="/member" className='link-decoration'>
                         <ListItem disablePadding>
@@ -101,17 +115,6 @@ export const Navbar = () => {
                             </ListItemButton>
                         </ListItem>
                     </Link>
-                    {/* <Link to="/category" className='link-decoration'> */}
-                    <ListItem disablePadding>
-                        <ListItemButton >
-                            <ListItemIcon>
-                                <TrackChangesIcon className='navbar-icon d-icon4' />
-                            </ListItemIcon>
-                            <ListItemText className='navbar-icon-text' primary='Category' />
-                        </ListItemButton>
-                    </ListItem>
-                    {/* </Link> */}
-                    {/* <Link to='/issueBook' className='link-decoration'> */}
                     <ListItem disablePadding>
                         <ListItemButton onClick={handleClick}>
                             <ListItemIcon>
@@ -121,58 +124,26 @@ export const Navbar = () => {
                             {openM ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                     </ListItem>
-                    <Link to="/activemember" className='link-decoration'>
-                        <Collapse in={!openM} timeout="auto" unmountOnExit>
+                        <Collapse in={openM} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton onClick={handleClickSec} style={{color:'rgb(51,146,230)', fontWeight:'600'}} sx={{ pl: 5 }}>
+                                <ListItemButton onClick={handleClickSec} 
+                                                style={{color:'rgb(51,146,230)', fontWeight:'600'}} 
+                                                sx={{ pl: 4.5 }}>
                                     <ListItemText primary="Master" />
-                                    {/* <ListItemText primary="Master" />
-                                    {open ? <ExpandLess /> : <ExpandMore />} */}
                                 </ListItemButton>
                             </List>   
-                            </Collapse> 
-                            <Link to="/addmember" className='link-decoration'>
-                                <Collapse in={!openS} timeout="auto" unmountOnExit>
+                        </Collapse> 
+                        {master.map((el, i) => {
+                            return <div key={i} >
+                                <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Category List" />
-                                        </ListItemButton>
-                                    </List>
-                                </Collapse>
-                                <Link to="/memberlist" className='link-decoration'>
-                                <Collapse in={!openS} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Publisher Master" />
-                                        </ListItemButton>
-                                    </List>
-                                </Collapse>
-                                <Link to="/expiredmember" className='link-decoration'>
-
-                                    <Collapse in={!openS} timeout="auto" unmountOnExit>
-                                        <List component="div" disablePadding>
-                                            <ListItemButton sx={{ pl: 4 }}>
-                                                <ListItemIcon>
-                                                    <StarBorder />
-                                                </ListItemIcon>
-                                                <ListItemText primary="Author Master" />
-                                            </ListItemButton>
-                                        </List>
-                                    </Collapse>
-
-                                </Link>
-                            </Link>    
-                        </Link>
-                    
-                    </Link>
-                    {/* </Link> */}
-                    {/* <Link to='/demo' className='link-decoration'> */}
+                                        <ListItemButton sx={{ pl: 7 }}>
+                                        <ListItemText primary={el} />
+                                    </ListItemButton>
+                                </List>
+                            </Collapse>
+                            </div>
+                        })}
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -181,7 +152,6 @@ export const Navbar = () => {
                             <ListItemText className='navbar-icon-text' primary='Demo' />
                         </ListItemButton>
                     </ListItem>
-                    {/* </Link> */}
                 </List>
             </Drawer>
 
