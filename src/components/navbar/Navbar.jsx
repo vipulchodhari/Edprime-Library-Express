@@ -27,10 +27,13 @@ const drawerWidth = 240;
 
 export const Navbar = () => {
     const [openM, setOpenM] = React.useState(true);
-    const [openS, setOpenS] = React.useState(false);
+    const [openS, setOpenS] = React.useState(true);
     const handleClick = () => {
         setOpenM(!openM);
-        setOpenS(openS);
+        setOpenS(!openS);
+    };
+    const handleClickSec = () => {
+        setOpenS(!openS);
     };
     return <div>
         <Box sx={{ display: 'flex' }}>
@@ -119,9 +122,9 @@ export const Navbar = () => {
                         </ListItemButton>
                     </ListItem>
                     <Link to="/activemember" className='link-decoration'>
-                        <Collapse in={openM} timeout="auto" unmountOnExit>
+                        <Collapse in={!openM} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <ListItemButton onClick={handleClick} style={{color:'rgb(51,146,230)', fontWeight:'600'}} sx={{ pl: 5 }}>
+                                <ListItemButton onClick={handleClickSec} style={{color:'rgb(51,146,230)', fontWeight:'600'}} sx={{ pl: 5 }}>
                                     <ListItemText primary="Master" />
                                     {/* <ListItemText primary="Master" />
                                     {open ? <ExpandLess /> : <ExpandMore />} */}
@@ -129,40 +132,36 @@ export const Navbar = () => {
                             </List>   
                             </Collapse> 
                             <Link to="/addmember" className='link-decoration'>
-                                <Collapse in={openS} timeout="auto" unmountOnExit>
+                                <Collapse in={!openS} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
                                         <ListItemButton sx={{ pl: 4 }}>
                                             <ListItemIcon>
                                                 <StarBorder />
                                             </ListItemIcon>
-                                            <ListItemText primary="Add Member" />
+                                            <ListItemText primary="Category List" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
                                 <Link to="/memberlist" className='link-decoration'>
-
-                                <Collapse in={openS} timeout="auto" unmountOnExit>
+                                <Collapse in={!openS} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
                                         <ListItemButton sx={{ pl: 4 }}>
                                             <ListItemIcon>
                                                 <StarBorder />
                                             </ListItemIcon>
-                                            <ListItemText primary="Member List" />
-
+                                            <ListItemText primary="Publisher Master" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-
                                 <Link to="/expiredmember" className='link-decoration'>
 
-                                    <Collapse in={openS} timeout="auto" unmountOnExit>
+                                    <Collapse in={!openS} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding>
                                             <ListItemButton sx={{ pl: 4 }}>
                                                 <ListItemIcon>
                                                     <StarBorder />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Expired Membership" />
-
+                                                <ListItemText primary="Author Master" />
                                             </ListItemButton>
                                         </List>
                                     </Collapse>
