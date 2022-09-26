@@ -142,14 +142,14 @@ export const Navbar = () => {
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
-                                <Link to="/memberlist" className='link-decoration'>
+                                <Link to="/publisher" className='link-decoration'>
                                 <Collapse in={!openS} timeout="auto" unmountOnExit>
                                     <List component="div" disablePadding>
                                         <ListItemButton sx={{ pl: 4 }}>
                                             <ListItemIcon>
                                                 <StarBorder />
                                             </ListItemIcon>
-                                            <ListItemText primary="Publisher Master" />
+                                            <ListItemText primary="Publisher" />
                                         </ListItemButton>
                                     </List>
                                 </Collapse>
