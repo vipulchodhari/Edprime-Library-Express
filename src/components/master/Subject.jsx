@@ -15,17 +15,17 @@ const SampleData = [
     formatOurData("4", "Author Name", "25-05-2022", "Rejected"),
 ];
 
-export const Publisher = () => {
+export const  Subject = () => {
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt=''/>
-            <p style={{fontSize:'12px', color:'#777777'}}>Library, Set Up, Master, Publisher Master</p>
+            <p style={{fontSize:'12px', color:'#777777'}}>Library, Set Up, Master, Subject Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-            <h3>Publisher Master</h3>
-            <button className="author-addbtn">ADD PUBLISHER</button>
+            <h3>Subject Master</h3>
+            <button className="author-addbtn">ADD SUBJECT</button>
             </div>
             <hr/>
             <input className="author-search-box" type='text' placeholder='Search...'/>
