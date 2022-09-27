@@ -34,7 +34,8 @@ export const Author = () => {
     authorData = authorData?.filter((el) =>
         el?.title?.toLowerCase().includes(query) ||
         el?.title?.toUpperCase().includes(query) ||
-        dateFormat(el?.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
+        dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
+        // el.status.toLowerCase().includes(query)
     )
 
     const searchAuthor = (e) => {
