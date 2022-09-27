@@ -49,6 +49,25 @@ export const Navbar = () => {
         }else if (el === "Language Master"){
             navigate('/language')
         }
+        else if(el === "Publisher Master"){
+            navigate('/publisher')
+        }
+        else if(el === "Language Master"){
+            navigate('/language')
+        }
+        else if(el === "Class Master"){
+            navigate('/class')
+        }
+        else if(el === "Subject Master"){
+            navigate('/subject')
+
+        } else if(el === "Membership Plans"){
+            navigate('/membership')
+
+        }else if(el === "Location Master"){
+            navigate('/location')
+        }
+        
     }
     
     return <div>
