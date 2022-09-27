@@ -32,10 +32,9 @@ export const Author = () => {
     // console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
-        el.title.toLowerCase().includes(query) ||
-        el.title.toUpperCase().includes(query) ||
-        dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
-        // el.status.toLowerCase().includes(query)
+        el?.title?.toLowerCase().includes(query) ||
+        el?.title?.toUpperCase().includes(query) ||
+        dateFormat(el?.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
     )
 
     const searchAuthor = (e) => {
@@ -45,7 +44,7 @@ export const Author = () => {
     console.log("filter data", authorData);
 
     useEffect(() => {
-        getData()
+         getData()
     }, [])
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>

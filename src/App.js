@@ -12,6 +12,8 @@ import { Class } from './components/master/Class';
 import { Subject } from './components/master/Subject';
 import { Membership } from './components/master/Membership';
 import { Location } from './components/master/Location';
+import { AddClass } from './components/master/addmaster/AddClass';
+
 
 function App() {
   return (
@@ -30,8 +32,10 @@ function App() {
           <Route path='/subject' element={<Subject/>}></Route>
           <Route path='/membership' element={<Membership/>}></Route>
           <Route path='/location' element={<Location/>}></Route>
-                 
-         
+
+           {/* addmaster Routes */}
+
+          <Route path='/addclass' element={<AddClass/>}></Route>
         </Routes>
       </div>
     </div>
