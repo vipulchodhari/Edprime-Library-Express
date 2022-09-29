@@ -45,16 +45,12 @@ export const Author = () => {
             await axios.delete(`${authorUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
+                    if(res.status === 200) alert("Author Deleted")
                 })
-            alert("Author Deleted")
-            getData()
+            getData() 
         } catch (err) {
             console.log("error", err);
         }
-    }
-
-    const handleEdit = () => {
-        navigate('/author/editauthor')
     }
 
     const handlePageChange = (pageNumber) => {
@@ -133,8 +129,10 @@ export const Author = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <EditIcon className="author-action-icons" onClick={()=> handleEdit(author._id)}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>
+                                    <Link to={`/author/editauthor/${author._id}`} className='link-decoration'> 
+                                        <EditIcon className="author-action-icons"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>     
+                                    <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>    
                                 </TableCell>
                             </TableRow>
                         )) : <tr><td className="no-data">No Data Found</td></tr>}

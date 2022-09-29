@@ -24,8 +24,8 @@ import '../../styles/navbar.css';
 const drawerWidth = 240;
 
 export const Navbar = () => {
-    let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master", 
-                  "Class Master", "Subject Master", "Membership Plans", "Location Master"]                  
+    let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master",
+        "Class Master", "Subject Master", "Membership Plans", "Location Master"]
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
     const navigate = useNavigate()
@@ -38,29 +38,29 @@ export const Navbar = () => {
     };
     const handleNavigate = (el) => {
         // console.log("receive end point", el)
-        if(el === "Category List"){
+        if (el === "Category List") {
             navigate('/category')
-        }else if(el === "Author Master"){
+        } else if (el === "Author Master") {
             navigate('/author')
-        }else if(el === "Genre Master"){
+        } else if (el === "Genre Master") {
             navigate('/genre')
-        }else if(el === "Language Master"){
+        } else if (el === "Language Master") {
             navigate('/language')
-        }else if(el === "Publisher Master"){
+        } else if (el === "Publisher Master") {
             navigate('/publisher')
-        }else if(el === "Language Master"){
+        } else if (el === "Language Master") {
             navigate('/language')
-        }else if(el === "Class Master"){
+        } else if (el === "Class Master") {
             navigate('/class')
-        }else if(el === "Subject Master"){
+        } else if (el === "Subject Master") {
             navigate('/subject')
-        }else if(el === "Membership Plans"){
+        } else if (el === "Membership Plans") {
             navigate('/membership')
-        }else if(el === "Location Master"){
+        } else if (el === "Location Master") {
             navigate('/location')
         }
     }
-    
+
     return <div>
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -87,14 +87,14 @@ export const Navbar = () => {
                 <Divider />
                 <List>
                     <Link to='/' className='link-decoration'>
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <DashboardIcon className='navbar-icon d-icon1' />
-                            </ListItemIcon>
-                            <ListItemText className='navbar-icon-text' primary='Dashboard' />
-                        </ListItemButton>
-                    </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <DashboardIcon className='navbar-icon d-icon1' />
+                                </ListItemIcon>
+                                <ListItemText className='navbar-icon-text' primary='Dashboard' />
+                            </ListItemButton>
+                        </ListItem>
                     </Link>
                     <ListItem disablePadding>
                         <ListItemButton>
@@ -123,42 +123,47 @@ export const Navbar = () => {
                             {openM ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                     </ListItem>
-                        <Collapse in={openM} timeout="auto" unmountOnExit>
-                            <List component="div" disablePadding>
-                                <ListItemButton onClick={handleClickSec} 
-                                                style={{color:'rgb(51,146,230)', fontWeight:'600'}} 
-                                                sx={{ pl: 4.5 }}>
-                                    <ListItemText primary="Master" />
-                                </ListItemButton>
-                            </List>   
-                        </Collapse> 
-                        {master.map((el, i) => {
-                            return <div key={i} >
-                                <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
-                                    <List component="div" disablePadding>
+                    <Collapse in={openM} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItemButton onClick={handleClickSec}
+                                style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
+                                sx={{ pl: 4.5 }}>
+                                <ListItemText primary="Master" />
+                            </ListItemButton>
+                        </List>
+                    </Collapse>
+                    {master.map((el, i) => {
+                        return <div key={i} >
+                            <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
+                                <List component="div" disablePadding>
                                     <ListItemButton sx={{ pl: 7 }}>
-                                        <ListItemText primary={el}/>
+                                        <ListItemText primary={el} />
                                     </ListItemButton>
                                 </List>
                             </Collapse>
-                            </div>
-                        })}
-                    <ListItem disablePadding>
-                        <ListItemButton onClick={handleClick}>
-                            <ListItemIcon>
-                                <SettingsIcon className='navbar-icon d-icon5' />
-                            </ListItemIcon>
-                            <ListItemText primary="Library Settings" />
-                        </ListItemButton>
-                    </ListItem>    
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <QuizIcon className='navbar-icon d-icon5' />
-                            </ListItemIcon>
-                            <ListItemText className='navbar-icon-text' primary='Demo' />
-                        </ListItemButton>
-                    </ListItem>
+                        </div>
+                    })}
+                    <Collapse in={openM} timeout="auto" unmountOnExit>
+                        <Link to='/library-settings' className='link-decoration'>
+                            <List component="div" disablePadding>
+                                <ListItemButton
+                                    style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
+                                    sx={{ pl: 4.5 }}>
+                                    <ListItemText primary="Library Settings" />
+                                </ListItemButton>
+                            </List>
+                        </Link>
+                    </Collapse>
+                    {/* <Link to='/library-settings' className='link-decoration'> */}
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <QuizIcon className='navbar-icon d-icon5' />
+                                </ListItemIcon>
+                                <ListItemText className='navbar-icon-text' primary='Demo' />
+                            </ListItemButton>
+                        </ListItem>
+                    {/* </Link> */}
                 </List>
             </Drawer>
         </Box>

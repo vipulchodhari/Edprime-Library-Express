@@ -22,6 +22,7 @@ import { AddLocation } from './components/master/location/AddLocation';
 import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
 import { EditAuthor } from './components/master/author/EditAuthor';
+import { LibrarySettings } from './components/librarySettings/LibrarySettings';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path='/subject' element={<Subject/>}></Route>
           <Route path='/membership' element={<Membership/>}></Route>
           <Route path='/location' element={<Location/>}></Route>
+          <Route path='/library-settings' element={<LibrarySettings/>}></Route>
 
            {/* addmaster Routes */}
 
@@ -56,7 +58,7 @@ function App() {
 
           {/* ---------edit master Routes-------- */}
 
-          <Route path='/author/editauthor' element={<EditAuthor/>}></Route>
+          <Route path='/author/editauthor/:id' element={<EditAuthor/>}></Route>
         </Routes>
       </div>
     </div>
