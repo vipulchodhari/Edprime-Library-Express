@@ -25,7 +25,7 @@ const drawerWidth = 240;
 
 export const Navbar = () => {
     let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master", 
-                  "Class Master", "Subject Master", "Membership Plans", "Location Master"]
+                  "Class Master", "Subject Master", "Membership Plans", "Location Master"]                  
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
     const navigate = useNavigate()
@@ -150,7 +150,7 @@ export const Navbar = () => {
                             </ListItemIcon>
                             <ListItemText primary="Library Settings" />
                         </ListItemButton>
-                    </ListItem>
+                    </ListItem>    
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>

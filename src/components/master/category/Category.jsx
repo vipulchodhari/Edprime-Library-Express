@@ -1,78 +1,65 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import homeIcon from '../../assets/home.png';
+import homeIcon from '../../../assets/home.png';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import dateFormat from "dateformat";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../../styles/master.css';
-import Pagination from "react-js-pagination";
-import { authorUrl } from "../../utils/common";
+import '../../../styles/master.css';
+import {Link} from 'react-router-dom'
 
-export const Author = () => {
+function formatOurData(columnName, AuthorName, CreationDate, Status) {
+    return { columnName, AuthorName, CreationDate, Status };
+}
+
+const SampleData = [
+    formatOurData("1", "Author Name", "25-05-2022", "Approved"),
+    formatOurData("2", "Author Name", "25-05-2022", "In Progress"),
+    formatOurData("3", "Author Name", "25-05-2022", "Success"),
+    formatOurData("4", "Author Name", "25-05-2022", "Rejected"),
+];
+
+export const Category = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
-    const [activePage, setActivePage] = useState(1);
-    const [itemCount, setItemCount] = useState();
 
     const getData = async () => {
-        await axios.get(`${authorUrl}?page=${activePage}`)
+        await axios.get('http://192.100.100.52:5000/category')
             .then((res) => {
                 setAuthorData(res.data.data)
-                setItemCount(res?.data?.authorCount)
-                // console.log(res.data)
+                console.log(res.data.data)
             })
     }
-    console.log("data", authorData);
+    // console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
-        el?.title?.toLowerCase().includes(query.toLowerCase()) ||
+        el.title.toLowerCase().includes(query) ||
+        el.title.toUpperCase().includes(query) ||
         dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
-        // el?.status?.toLowerCase().includes(query)
+        // el.status.toLowerCase().includes(query)
     )
 
     const searchAuthor = (e) => {
         setQuery(e.target.value)
     }
-
-    const handleDelete = async (id) => {
-        console.log("id", id);
-        try {
-            await axios.delete(`${authorUrl}/${id}`)
-                .then((res) => {
-                    console.log("delete response", res)
-                })
-            alert("Author Deleted")
-            getData()
-        } catch (err) {
-            console.log("error", err);
-        }
-    }
-
-    const handleEdit = () => {
-
-    }
-
-    const handlePageChange = (pageNumber) => {
-        // console.log('paginatino pageNumber', pageNumber)
-        setActivePage(pageNumber)
-        getData(pageNumber)
-    }
+    console.log("query", query);
+    console.log("filter data", authorData);
 
     useEffect(() => {
-        getData()
-    }, [activePage])
-
+         getData()
+    }, [])
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master,Category List</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Author Master</h3>
-                <button className="author-addbtn">ADD AUTHOR</button>
+                <h3>Category List</h3>
+                <Link to='/addclass'>
+                <button className="author-addbtn">ADD CLASS</button>
+                </Link>
             </div>
             <hr />
             <input onChange={searchAuthor} className="author-search-box" type='text' placeholder='Search...' />
@@ -109,7 +96,7 @@ export const Author = () => {
                         {authorData? authorData?.map((author, i) => (
                             <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
-                                    {itemCount}
+                                    {i + 1}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>{author.title}</strong>
@@ -128,28 +115,14 @@ export const Author = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <EditIcon className="author-action-icons" onClick={() => handleEdit(author._id)}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <DeleteIcon className="author-action-icons" onClick={() => handleDelete(author._id)} />
+                                    <EditIcon className="author-action-icons" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <DeleteIcon className="author-action-icons" />
                                 </TableCell>
                             </TableRow>
-                        )) : <tr><td>Loading...</td></tr>}
+                        )):<tr><td className="no-data">No Data Found</td></tr>}
                     </TableBody>
                 </Table>
             </TableContainer>
-
-            <div className="pagination">
-                <Pagination
-                    activePage={activePage}
-                    itemsCountPerPage={5}
-                    totalItemsCount={+itemCount}
-                    pageRangeDisplayed={3}
-                    firstPageText={'Start'}
-                    lastPageText={'End'}
-                    prevPageText={'<<'}
-                    nextPageText={'>>'}
-                    onChange={handlePageChange}
-                />
-            </div>
         </div>
     </div>
 }
