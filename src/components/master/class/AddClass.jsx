@@ -8,8 +8,6 @@ import axios from "axios";
 import '../../../styles/addmaster.css';
 import {Link} from 'react-router-dom'
 
-
-
 export const AddClass = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
@@ -56,7 +54,7 @@ export const AddClass = () => {
             <hr />
             <div>
             <p>Class Name</p>
-            <input className="publisher-box" type='text' placeholder='' />
+            <input onChange={searchAuthor} className="publisher-box" type='text' placeholder='' />
              
             </div>
             <div>

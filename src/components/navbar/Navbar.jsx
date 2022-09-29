@@ -13,15 +13,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonIcon from '@mui/icons-material/Person';
-import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import QuizIcon from '@mui/icons-material/Quiz';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import Collapse from '@mui/material/Collapse';
-import '../../styles/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
+import '../../styles/navbar.css';
 
 const drawerWidth = 240;
 
@@ -46,24 +44,18 @@ export const Navbar = () => {
             navigate('/author')
         }else if(el === "Genre Master"){
             navigate('/genre')
-        }else if (el === "Language Master"){
+        }else if(el === "Language Master"){
             navigate('/language')
-        }
-        else if(el === "Publisher Master"){
+        }else if(el === "Publisher Master"){
             navigate('/publisher')
-        }
-        else if(el === "Language Master"){
+        }else if(el === "Language Master"){
             navigate('/language')
-        }
-        else if(el === "Class Master"){
+        }else if(el === "Class Master"){
             navigate('/class')
-        }
-        else if(el === "Subject Master"){
+        }else if(el === "Subject Master"){
             navigate('/subject')
-
-        } else if(el === "Membership Plans"){
+        }else if(el === "Membership Plans"){
             navigate('/membership')
-
         }else if(el === "Location Master"){
             navigate('/location')
         }
@@ -144,8 +136,8 @@ export const Navbar = () => {
                             return <div key={i} >
                                 <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 7 }}>
-                                        <ListItemText primary={el} />
+                                    <ListItemButton sx={{ pl: 7 }}>
+                                        <ListItemText primary={el}/>
                                     </ListItemButton>
                                 </List>
                             </Collapse>

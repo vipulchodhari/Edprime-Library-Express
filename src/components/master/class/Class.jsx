@@ -7,33 +7,60 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import {Link} from 'react-router-dom'
+import { authorUrl } from "../../../utils/common";
+import Pagination from "react-js-pagination";
 
 
 export const  Class = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
+    const [activePage, setActivePage] = useState(1);
+    const [itemCount, setItemCount] = useState();
 
     const getData = async () => {
         await axios.get('http://192.100.100.52:5000/genre')
             .then((res) => {
                 setAuthorData(res.data.data)
-                console.log(res.data.data)
+                setItemCount(res?.data?.authorCount)
+                // console.log(res.data)
             })
     }
-    // console.log("data", authorData);
+    console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
         el.title.toLowerCase().includes(query) ||
         el.title.toUpperCase().includes(query) ||
         dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
-        // el.status.toLowerCase().includes(query)
+        // el?.status?.toLowerCase().includes(query)
     )
 
     const searchAuthor = (e) => {
         setQuery(e.target.value)
     }
-    console.log("query", query);
-    console.log("filter data", authorData);
+
+    const handleDelete = async (id) => {
+        console.log("id", id);
+        try {
+            await axios.delete(`${authorUrl}/${id}`)
+                .then((res) => {
+                    console.log("delete response", res)
+                })
+            alert("Author Deleted")
+            getData()
+        } catch (err) {
+            console.log("error", err);
+        }
+    }
+
+    const handleEdit = () => {
+
+    }
+
+    const handlePageChange = (pageNumber) => {
+        // console.log('paginatino pageNumber', pageNumber)
+        setActivePage(pageNumber)
+        getData(pageNumber)
+    }
 
     useEffect(() => {
          getData()
@@ -83,10 +110,10 @@ export const  Class = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {authorData?.map((author, i) => (
+                        {authorData? authorData?.map((author, i) => (
                             <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
-                                    {i + 1}
+                                    {itemCount}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>{author.title}</strong>
@@ -105,14 +132,28 @@ export const  Class = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <EditIcon className="author-action-icons" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <DeleteIcon className="author-action-icons" />
+                                    <EditIcon className="author-action-icons" onClick={() => handleEdit(author._id)}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <DeleteIcon className="author-action-icons" onClick={() => handleDelete(author._id)} />
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        )) : <tr><td>Loading...</td></tr>}
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <div className="pagination">
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={5}
+                    totalItemsCount={+itemCount}
+                    pageRangeDisplayed={3}
+                    firstPageText={'Start'}
+                    lastPageText={'End'}
+                    prevPageText={'<<'}
+                    nextPageText={'>>'}
+                    onChange={handlePageChange}
+                />
+            </div>
         </div>
     </div>
 }

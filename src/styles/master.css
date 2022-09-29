@@ -4,7 +4,7 @@
     height: 785px;
 }
 .author-heading{
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: -5px;
     margin-left: 10px;
 }
@@ -102,14 +102,6 @@
     background-color: rgb(233, 239, 239);
     cursor: pointer;
 }
-.no-data{
-    position: absolute;
-    top:400px;
-    left:50%;
-    font-size: 40px;
-    color: #9EA5B9;
-    
-}
 .pagination{
 	margin-top: 10px;
     display: flex;
@@ -131,3 +123,4 @@
     border-radius: 5px;
     cursor: pointer;
 }
+

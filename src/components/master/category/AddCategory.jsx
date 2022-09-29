@@ -8,7 +8,6 @@ import axios from "axios";
 import '../../../styles/addmaster.css';
 import {Link} from 'react-router-dom'
 
-
 export const AddCategory = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");

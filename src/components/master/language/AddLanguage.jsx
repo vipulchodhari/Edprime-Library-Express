@@ -7,9 +7,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/addmaster.css';
 
-
-
-
 export const AddLanguage= () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
