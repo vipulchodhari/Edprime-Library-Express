@@ -22,6 +22,14 @@ import { AddLocation } from './components/master/location/AddLocation';
 import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
 import { EditAuthor } from './components/master/author/EditAuthor';
+import { EditPublisher} from './components/master/publisher/EditPublisher';
+import { EditCategory} from './components/master/category/EditCategory';
+import { EditClass} from './components/master/class/EditClass';
+import { Editgenre} from './components/master/genre/Editgenre';
+import { Editlanguage} from './components/master/language/Editlanguage';
+import { Editlocation} from './components/master/location/Editlocation';
+import { EditSubject} from './components/master/subject/EditSubject';
+
 
 
 function App() {
@@ -44,19 +52,26 @@ function App() {
 
            {/* addmaster Routes */}
 
-          <Route path='/addclass' element={<AddCategory/>}></Route>
-          <Route path='/addpublisher' element={<AddPublisher/>}></Route>
+          <Route path='/category/addcategory' element={<AddCategory/>}></Route>
+          <Route path='/publisher/addpublisher' element={<AddPublisher/>}></Route>
           <Route path='/author/addauthor' element={<AddAuthor/>}></Route>
-          <Route path='/addgenre' element={<AddGenre/>}></Route>
-          <Route path='/addlanguage' element={<AddLanguage/>}></Route>
-          <Route path='/addlocation' element={<AddLocation/>}></Route>
-          <Route path='/addclass' element={<AddClass/>}></Route>
-          <Route path='/addsubject' element={<AddSubject/>}></Route>
+          <Route path='/genre/addgenre' element={<AddGenre/>}></Route>
+          <Route path='/language/addlanguage' element={<AddLanguage/>}></Route>
+          <Route path='/location/addlocation' element={<AddLocation/>}></Route>
+          <Route path='/class/addclass' element={<AddClass/>}></Route>
+          <Route path='/subject/addsubject' element={<AddSubject/>}></Route>
           <Route path='/addmembership' element={<AddMembership/>}></Route>
 
           {/* ---------edit master Routes-------- */}
 
           <Route path='/author/editauthor' element={<EditAuthor/>}></Route>
+          <Route path='/publisher/editpublisher' element={<EditPublisher/>}></Route>
+          <Route path='/category/editcategory' element={<EditCategory/>}></Route>
+          <Route path='/class/editclass' element={<EditClass/>}></Route>
+          <Route path='/genre/editgenre' element={<Editgenre/>}></Route>
+          <Route path='/language/editlanguage' element={<Editlanguage/>}></Route>
+          <Route path='/location/editlocation' element={<Editlocation/>}></Route>
+          <Route path='/subject/editsubject' element={<EditSubject/>}></Route>
         </Routes>
       </div>
     </div>

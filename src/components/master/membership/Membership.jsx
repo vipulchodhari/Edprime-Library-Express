@@ -82,7 +82,7 @@ export const Membership = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {authorData?.map((author, i) => (
+                        {authorData ? authorData?.map((author, i) => (
                             <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
                                     {i + 1}
@@ -108,7 +108,7 @@ export const Membership = () => {
                                     <DeleteIcon className="author-action-icons" />
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        )): <tr><td className="no-data">No Data Found</td></tr>}
                     </TableBody>
                 </Table>
             </TableContainer>

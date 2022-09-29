@@ -6,25 +6,31 @@ import dateFormat from "dateformat";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
-import {Link} from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { authorUrl } from "../../../utils/common";
+import Pagination from "react-js-pagination";
 
 export const Location = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
+    const [activePage, setActivePage] = useState(1);
+    const [itemCount, setItemCount] = useState();
+
+    const navigate = useNavigate();
 
     const getData = async () => {
-        await axios.get('http://192.100.100.52:5000/genre')
+        await axios.get(`${authorUrl}?page=${activePage}`)
             .then((res) => {
                 setAuthorData(res.data.data)
-                console.log(res.data.data)
+                setItemCount(res?.data?.authorCount)
+                // console.log(res.data)
             })
     }
     // console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
-        el.title.toLowerCase().includes(query) ||
-        el.title.toUpperCase().includes(query) ||
+        el?.title?.toLowerCase().includes(query) ||
+        el?.title?.toUpperCase().includes(query) ||
         dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
         // el.status.toLowerCase().includes(query)
     )
@@ -32,23 +38,45 @@ export const Location = () => {
     const searchAuthor = (e) => {
         setQuery(e.target.value)
     }
-    console.log("query", query);
-    console.log("filter data", authorData);
+
+    const handleDelete = async (id) => {
+        console.log("id", id);
+        try {
+            await axios.delete(`${authorUrl}/${id}`)
+                .then((res) => {
+                    console.log("delete response", res)
+                })
+            alert("Author Deleted")
+            getData()
+        } catch (err) {
+            console.log("error", err);
+        }
+    }
+
+    const handleEdit = () => {
+        navigate('/location/editlocation')
+    }
+
+    const handlePageChange = (pageNumber) => {
+        // console.log('paginatino pageNumber', pageNumber)
+        setActivePage(pageNumber)
+        getData(pageNumber)
+    }
 
     useEffect(() => {
-         getData()
-    }, [])
+        getData()
+    }, [activePage])
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Location Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Location Master</h3>
-                <Link to='/addlocation'>
-                <button className="author-addbtn">ADD LOCATION</button>
+                <Link to='/location/addlocation'>
+                    <button className="author-addbtn">ADD LOCATION</button>
                 </Link>
             </div>
             <hr />
@@ -83,7 +111,7 @@ export const Location = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {authorData?.map((author, i) => (
+                        {authorData ? authorData?.map((author, i) => (
                             <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
                                     {i + 1}
@@ -105,14 +133,28 @@ export const Location = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <EditIcon className="author-action-icons" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <DeleteIcon className="author-action-icons" />
+                                    <EditIcon className="author-action-icons" onClick={()=> handleEdit(author._id)}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        )) : <tr><td className="no-data">No Data Found</td></tr>}
                     </TableBody>
                 </Table>
             </TableContainer>
+
+            <div className="pagination">
+                <Pagination
+                    activePage={activePage}
+                    itemsCountPerPage={5}
+                    totalItemsCount={+itemCount}
+                    pageRangeDisplayed={3}
+                    firstPageText={'Start'}
+                    lastPageText={'End'}
+                    prevPageText={'<<'}
+                    nextPageText={'>>'}
+                    onChange={handlePageChange}
+                />
+            </div>
         </div>
     </div>
 }

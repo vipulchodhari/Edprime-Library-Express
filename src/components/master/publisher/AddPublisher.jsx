@@ -46,9 +46,8 @@ export const AddPublisher = () => {
             <div className="author-btnFlex">
                 <h3>Add Publisher</h3>
                 <div className='display-flex'>
-                <button className="author-addbtn">Submit</button>
-                <button className="author-addbtn-color">Cancel</button>
-                          
+                    <button className="author-addbtn">Submit</button>
+                    <button className="author-addbtn" style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             
             </div>

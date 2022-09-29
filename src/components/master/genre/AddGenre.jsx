@@ -8,9 +8,7 @@ import axios from "axios";
 import '../../../styles/addmaster.css';
 import {Link} from 'react-router-dom'
 
-
-
-export const AddGenre= () => {
+export const AddGenre = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
 
@@ -49,12 +47,22 @@ export const AddGenre= () => {
             <div className="author-btnFlex">
                 <h3>Add Class</h3>
                 <div className='display-flex'>
-                <button className="author-addbtn">Submit</button>
-                <button className="author-addbtn">Cancel</button>
+                    <button className="author-addbtn">Submit</button>
+                    <button className="author-addbtn" style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />
+            <div>
+            <p>Category Name</p>
+            <input className="publisher-box" type='text' placeholder='' />
+             
+            </div>
+            <div>
+            <p>Description</p>
+            <input className="publisher-add-box" type='text' />
             
+            </div>
+        
         </div>
     </div>
 }
