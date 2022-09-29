@@ -22,14 +22,14 @@ import { AddLocation } from './components/master/location/AddLocation';
 import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
 import { EditAuthor } from './components/master/author/EditAuthor';
-import { EditPublisher} from './components/master/publisher/EditPublisher';
-import { EditCategory} from './components/master/category/EditCategory';
-import { EditClass} from './components/master/class/EditClass';
-import { Editgenre} from './components/master/genre/Editgenre';
-import { Editlanguage} from './components/master/language/Editlanguage';
-import { Editlocation} from './components/master/location/Editlocation';
-import { EditSubject} from './components/master/subject/EditSubject';
-
+import { LibrarySettings } from './components/librarySettings/LibrarySettings';
+import { EditPublisher } from './components/master/publisher/EditPublisher';
+import { EditCategory } from './components/master/category/EditCategory';
+import { EditClass } from './components/master/class/EditClass';
+import { Editgenre } from './components/master/genre/Editgenre';
+import { Editlanguage } from './components/master/language/Editlanguage';
+import { Editlocation } from './components/master/location/Editlocation';
+import { EditSubject } from './components/master/subject/EditSubject';
 
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
           <Route path='/subject' element={<Subject/>}></Route>
           <Route path='/membership' element={<Membership/>}></Route>
           <Route path='/location' element={<Location/>}></Route>
+          <Route path='/library-settings' element={<LibrarySettings/>}></Route>
 
            {/* addmaster Routes */}
 
@@ -64,7 +65,7 @@ function App() {
 
           {/* ---------edit master Routes-------- */}
 
-          <Route path='/author/editauthor' element={<EditAuthor/>}></Route>
+          <Route path='/author/editauthor/:id' element={<EditAuthor/>}></Route>
           <Route path='/publisher/editpublisher' element={<EditPublisher/>}></Route>
           <Route path='/category/editcategory' element={<EditCategory/>}></Route>
           <Route path='/class/editclass' element={<EditClass/>}></Route>
