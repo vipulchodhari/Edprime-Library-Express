@@ -45,7 +45,7 @@ function App() {
 
           <Route path='/addclass' element={<AddCategory/>}></Route>
           <Route path='/addpublisher' element={<AddPublisher/>}></Route>
-          <Route path='/addauthor' element={<AddAuthor/>}></Route>
+          <Route path='/author/addauthor' element={<AddAuthor/>}></Route>
           <Route path='/addgenre' element={<AddGenre/>}></Route>
           <Route path='/addlanguage' element={<AddLanguage/>}></Route>
           <Route path='/addlocation' element={<AddLocation/>}></Route>

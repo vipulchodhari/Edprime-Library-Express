@@ -73,7 +73,7 @@ export const Author = () => {
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Author Master</h3>
-                <Link to='/addauthor'>
+                <Link to='/author/addauthor'>
                     <button className="author-addbtn">ADD AUTHOR</button>
                 </Link>
             </div>
