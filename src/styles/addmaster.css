@@ -76,6 +76,19 @@
     border-radius: 5px;
     color: #fff;
     font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+}
+.author-addbtn-color{
+    height: 40px;
+    margin-top: 10px;
+    padding: 0px 50px;
+    background-color: #da1a1a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px;
     cursor: pointer;
 }
 .author-btnFlex{
@@ -88,4 +101,37 @@
     color: #3699FF;
     background-color: rgb(233, 239, 239);
     cursor: pointer;
+}
+.display-flex{
+    display: flex;
+    padding :0px 12px;
+    margin: 20px;
+}
+.publisher-box{
+    padding: 10px;
+    width: 40%;
+    margin-top: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px solid #9EA5B9;
+    outline: none;
+
+}
+.publisher-add-box{
+    padding: 2px;
+    width: 40%;
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #9EA5B9;
+    
+}
+.langauge-add-box
+{
+    padding: 2px;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #9EA5B9;
 }

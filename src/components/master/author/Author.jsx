@@ -1,11 +1,12 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import homeIcon from '../../assets/home.png';
+import {  Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import homeIcon from '../../../assets/home.png';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import dateFormat from "dateformat";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../../styles/master.css';
+import '../../../styles/master.css';
+import {Link} from 'react-router-dom'
 
 function formatOurData(columnName, AuthorName, CreationDate, Status) {
     return { columnName, AuthorName, CreationDate, Status };
@@ -18,12 +19,12 @@ const SampleData = [
     formatOurData("4", "Author Name", "25-05-2022", "Rejected"),
 ];
 
-export const Language = () => {
+export const Author = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
 
     const getData = async () => {
-        await axios.get('http://192.100.100.52:5000/genre')
+        await axios.get('http://192.100.100.52:5000/author')
             .then((res) => {
                 setAuthorData(res.data.data)
                 console.log(res.data.data)
@@ -32,8 +33,8 @@ export const Language = () => {
     // console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
-        el.title.toLowerCase().includes(query) ||
-        el.title.toUpperCase().includes(query) ||
+        el?.title?.toLowerCase().includes(query) ||
+        el?.title?.toUpperCase().includes(query) ||
         dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
         // el.status.toLowerCase().includes(query)
     )
@@ -56,7 +57,9 @@ export const Language = () => {
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Author Master</h3>
+                <Link to='/addauthor'>
                 <button className="author-addbtn">ADD AUTHOR</button>
+                </Link>
             </div>
             <hr />
             <input onChange={searchAuthor} className="author-search-box" type='text' placeholder='Search...' />
@@ -90,7 +93,7 @@ export const Language = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {authorData?.map((author, i) => (
+                        {authorData? authorData?.map((author, i) => (
                             <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
                                     {i + 1}
@@ -116,7 +119,7 @@ export const Language = () => {
                                     <DeleteIcon className="author-action-icons" />
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        )) : <tr><td className="no-data">No Data Found</td></tr>}
                     </TableBody>
                 </Table>
             </TableContainer>

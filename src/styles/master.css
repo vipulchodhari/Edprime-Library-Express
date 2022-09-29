@@ -102,3 +102,11 @@
     background-color: rgb(233, 239, 239);
     cursor: pointer;
 }
+.no-data{
+    position: absolute;
+    top:400px;
+    left:50%;
+    font-size: 40px;
+    color: #9EA5B9;
+    
+}
