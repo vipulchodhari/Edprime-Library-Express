@@ -21,6 +21,7 @@ import { AddClass } from './components/master/class/AddClass';
 import { AddLocation } from './components/master/location/AddLocation';
 import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
+import { EditAuthor } from './components/master/author/EditAuthor';
 
 
 function App() {
@@ -52,6 +53,10 @@ function App() {
           <Route path='/addclass' element={<AddClass/>}></Route>
           <Route path='/addsubject' element={<AddSubject/>}></Route>
           <Route path='/addmembership' element={<AddMembership/>}></Route>
+
+          {/* ---------edit master Routes-------- */}
+
+          <Route path='/author/editauthor' element={<EditAuthor/>}></Route>
         </Routes>
       </div>
     </div>

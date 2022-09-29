@@ -6,7 +6,7 @@ import dateFormat from "dateformat";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { authorUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
@@ -15,6 +15,8 @@ export const Author = () => {
     const [query, setQuery] = useState("");
     const [activePage, setActivePage] = useState(1);
     const [itemCount, setItemCount] = useState();
+
+    const navigate = useNavigate();
 
     const getData = async () => {
         await axios.get(`${authorUrl}?page=${activePage}`)
@@ -52,7 +54,7 @@ export const Author = () => {
     }
 
     const handleEdit = () => {
-
+        navigate('/author/editauthor')
     }
 
     const handlePageChange = (pageNumber) => {
