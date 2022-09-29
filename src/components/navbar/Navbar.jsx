@@ -13,15 +13,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonIcon from '@mui/icons-material/Person';
-import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import QuizIcon from '@mui/icons-material/Quiz';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import Collapse from '@mui/material/Collapse';
-import '../../styles/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
+import '../../styles/navbar.css';
 
 const drawerWidth = 240;
 
@@ -46,28 +44,21 @@ export const Navbar = () => {
             navigate('/author')
         }else if(el === "Genre Master"){
             navigate('/genre')
-        }else if (el === "Language Master"){
+        }else if(el === "Language Master"){
             navigate('/language')
-        }
-        else if(el === "Publisher Master"){
+        }else if(el === "Publisher Master"){
             navigate('/publisher')
-        }
-        else if(el === "Language Master"){
+        }else if(el === "Language Master"){
             navigate('/language')
-        }
-        else if(el === "Class Master"){
+        }else if(el === "Class Master"){
             navigate('/class')
-        }
-        else if(el === "Subject Master"){
+        }else if(el === "Subject Master"){
             navigate('/subject')
-
-        } else if(el === "Membership Plans"){
+        }else if(el === "Membership Plans"){
             navigate('/membership')
-
         }else if(el === "Location Master"){
             navigate('/location')
         }
-        
     }
     
     return <div>
@@ -88,7 +79,6 @@ export const Navbar = () => {
                 <div style={{ position: 'relative', marginTop: '40px' }}>
                     <SearchIcon className='navbar-searchIcon' />
                     <form className='navbar-form'>
-                        {/* <img className='navbar-searchIcon' src={SearchIcon} alt='' /> */}
                         <input type='text' placeholder='Search' />
                     </form>
                 </div>
@@ -106,7 +96,6 @@ export const Navbar = () => {
                         </ListItemButton>
                     </ListItem>
                     </Link>
-                    {/* <Link to='/books' className='link-decoration'> */}
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -115,17 +104,6 @@ export const Navbar = () => {
                             <ListItemText className='navbar-icon-text' primary='Books' />
                         </ListItemButton>
                     </ListItem>
-                    {/* </Link> */}
-                    {/* <Link to="/author" className='link-decoration'> */}
-                    {/* <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <PersonIcon className='navbar-icon d-icon3' />
-                            </ListItemIcon>
-                            <ListItemText className='navbar-icon-text' primary='Author' />
-                        </ListItemButton>
-                    </ListItem> */}
-                    {/* </Link> */}
                     <Link to="/member" className='link-decoration'>
                         <ListItem disablePadding>
                             <ListItemButton>
@@ -158,13 +136,21 @@ export const Navbar = () => {
                             return <div key={i} >
                                 <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                     <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 7 }}>
-                                        <ListItemText primary={el} />
+                                    <ListItemButton sx={{ pl: 7 }}>
+                                        <ListItemText primary={el}/>
                                     </ListItemButton>
                                 </List>
                             </Collapse>
                             </div>
                         })}
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={handleClick}>
+                            <ListItemIcon>
+                                <SettingsIcon className='navbar-icon d-icon5' />
+                            </ListItemIcon>
+                            <ListItemText primary="Library Settings" />
+                        </ListItemButton>
+                    </ListItem>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -175,8 +161,6 @@ export const Navbar = () => {
                     </ListItem>
                 </List>
             </Drawer>
-
         </Box>
-        {/* <Category/> */}
     </div>
 }
