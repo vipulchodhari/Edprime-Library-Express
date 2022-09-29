@@ -23,8 +23,6 @@ import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
 
 
-
-
 function App() {
   return (
     <div className="App">

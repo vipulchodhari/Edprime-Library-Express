@@ -87,7 +87,6 @@ export const Navbar = () => {
                 <div style={{ position: 'relative', marginTop: '40px' }}>
                     <SearchIcon className='navbar-searchIcon' />
                     <form className='navbar-form'>
-                        {/* <img className='navbar-searchIcon' src={SearchIcon} alt='' /> */}
                         <input type='text' placeholder='Search' />
                     </form>
                 </div>
@@ -105,7 +104,6 @@ export const Navbar = () => {
                         </ListItemButton>
                     </ListItem>
                     </Link>
-                    {/* <Link to='/books' className='link-decoration'> */}
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
@@ -114,17 +112,6 @@ export const Navbar = () => {
                             <ListItemText className='navbar-icon-text' primary='Books' />
                         </ListItemButton>
                     </ListItem>
-                    {/* </Link> */}
-                    {/* <Link to="/author" className='link-decoration'> */}
-                    {/* <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <PersonIcon className='navbar-icon d-icon3' />
-                            </ListItemIcon>
-                            <ListItemText className='navbar-icon-text' primary='Author' />
-                        </ListItemButton>
-                    </ListItem> */}
-                    {/* </Link> */}
                     <Link to="/member" className='link-decoration'>
                         <ListItem disablePadding>
                             <ListItemButton>
@@ -165,6 +152,14 @@ export const Navbar = () => {
                             </div>
                         })}
                     <ListItem disablePadding>
+                        <ListItemButton onClick={handleClick}>
+                            <ListItemIcon>
+                                <SettingsIcon className='navbar-icon d-icon5' />
+                            </ListItemIcon>
+                            <ListItemText primary="Library Settings" />
+                        </ListItemButton>
+                    </ListItem>    
+                    <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
                                 <QuizIcon className='navbar-icon d-icon5' />
@@ -174,8 +169,6 @@ export const Navbar = () => {
                     </ListItem>
                 </List>
             </Drawer>
-
         </Box>
-        {/* <Category/> */}
     </div>
 }
