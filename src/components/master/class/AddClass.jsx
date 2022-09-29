@@ -8,17 +8,6 @@ import axios from "axios";
 import '../../../styles/addmaster.css';
 import {Link} from 'react-router-dom'
 
-function formatOurData(columnName, AuthorName, CreationDate, Status) {
-    return { columnName, AuthorName, CreationDate, Status };
-}
-
-const SampleData = [
-    formatOurData("1", "Author Name", "25-05-2022", "Approved"),
-    formatOurData("2", "Author Name", "25-05-2022", "In Progress"),
-    formatOurData("3", "Author Name", "25-05-2022", "Success"),
-    formatOurData("4", "Author Name", "25-05-2022", "Rejected"),
-];
-
 export const AddClass = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
@@ -65,7 +54,7 @@ export const AddClass = () => {
             <hr />
             <div>
             <p>Class Name</p>
-            <input className="publisher-box" type='text' placeholder='' />
+            <input onChange={searchAuthor} className="publisher-box" type='text' placeholder='' />
              
             </div>
             <div>
