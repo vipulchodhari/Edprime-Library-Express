@@ -1,4 +1,6 @@
 import homeIcon from '../../assets/home.png';
+import { GeneralSetting } from './GeneralSetting';
+import '../../styles/librarySettings.css';
 
 export const LibrarySettings = () => {
     return <div className="author-container">
@@ -12,7 +14,8 @@ export const LibrarySettings = () => {
             <h3>Library Setting</h3>
         </div>
         <hr />
-        <div className="add-author-container">
+        <div >
+            <GeneralSetting/>
             
         </div>
     </div>
