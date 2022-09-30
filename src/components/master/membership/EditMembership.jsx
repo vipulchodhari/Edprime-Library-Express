@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { authorUrl } from '../../../utils/common';
 
-export const EditSubject = () => {
+export const EditMembership = () => {
     const params = useParams();
     const navigate = useNavigate();
     const authorId  = params.id;
@@ -44,7 +44,7 @@ export const EditSubject = () => {
             if(res.status === 200){
                 alert('Author Update Successfully')
 
-                navigate('/subject')
+                navigate('/membership')
             }
           })
     }
@@ -63,7 +63,7 @@ export const EditSubject = () => {
                 <h3>Edit Author</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={() => navigate('/subject')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={() => navigate('/membership')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />

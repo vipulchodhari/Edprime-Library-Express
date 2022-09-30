@@ -61,18 +61,18 @@ function App() {
           <Route path='/location/addlocation' element={<AddLocation/>}></Route>
           <Route path='/class/addclass' element={<AddClass/>}></Route>
           <Route path='/subject/addsubject' element={<AddSubject/>}></Route>
-          <Route path='/addmembership' element={<AddMembership/>}></Route>
+          <Route path='/membership/addmembership' element={<AddMembership/>}></Route>
 
           {/* ---------edit master Routes-------- */}
 
           <Route path='/author/editauthor/:id' element={<EditAuthor/>}></Route>
-          <Route path='/publisher/editpublisher' element={<EditPublisher/>}></Route>
-          <Route path='/category/editcategory' element={<EditCategory/>}></Route>
-          <Route path='/class/editclass' element={<EditClass/>}></Route>
-          <Route path='/genre/editgenre' element={<Editgenre/>}></Route>
-          <Route path='/language/editlanguage' element={<Editlanguage/>}></Route>
-          <Route path='/location/editlocation' element={<Editlocation/>}></Route>
-          <Route path='/subject/editsubject' element={<EditSubject/>}></Route>
+          <Route path='/publisher/editpublisher/:id' element={<EditPublisher/>}></Route>
+          <Route path='/category/editcategory/:id' element={<EditCategory/>}></Route>
+          <Route path='/class/editclass/:id' element={<EditClass/>}></Route>
+          <Route path='/genre/editgenre/:id' element={<Editgenre/>}></Route>
+          <Route path='/language/editlanguage/:id' element={<Editlanguage/>}></Route>
+          <Route path='/location/editlocation/:id' element={<Editlocation/>}></Route>
+          <Route path='/subject/editsubject/:id' element={<EditSubject/>}></Route>
         </Routes>
       </div>
     </div>

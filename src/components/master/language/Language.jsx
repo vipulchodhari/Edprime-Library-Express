@@ -74,7 +74,7 @@ export const Language = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Author Master</h3>
+                <h3>Language Master</h3>
                 <Link to='/language/addlanguage'>
                     <button className="author-addbtn">ADD LANGUAGE</button>
                 </Link>
