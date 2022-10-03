@@ -133,7 +133,9 @@ export const Subject = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <EditIcon className="author-action-icons" onClick={()=> handleEdit(author._id)}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <Link to={`/subject/editsubject/${author._id}`} className='link-decoration'> 
+                                        <EditIcon className="author-action-icons"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </Link>     
                                     <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>
                                 </TableCell>
                             </TableRow>

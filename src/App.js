@@ -35,7 +35,7 @@ import { EditSubject } from './components/master/subject/EditSubject';
 function App() {
   return (
     <div className="App">
-      <div style={{display:'flex', gap:'50px', backgroundColor:'rgb(240,243,246)'}}>
+      <div style={{display:'flex', gap:'30px', backgroundColor:'rgb(240,243,246)'}}>
         <Navbar />
         <Routes>
           <Route path='/' element={<Dashboard/>}></Route>
