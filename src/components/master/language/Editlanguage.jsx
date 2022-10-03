@@ -1,51 +1,57 @@
 import homeIcon from '../../../assets/home.png';
 import '../../../styles/addmaster.css';
 import customerBorder from '../../../assets/upload.png';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { authorUrl } from '../../../utils/common';
 
-export const AddCategory = () => {
-    const [text, setText] = useState({
-        title: "",
-        author_image: ""
-    })
-
+export const Editlanguage = () => {
+    const params = useParams();
     const navigate = useNavigate();
+    const authorId  = params.id;
+    console.log("params", authorId);
 
+    const [editAuthorData, setEditAuthorData] = useState();
+    console.log("editAuthorData", editAuthorData);
+
+    const getData = () => {
+        axios.get(`${authorUrl}/${authorId}`)
+          .then((res) => {
+            console.log("edit data", res)
+            setEditAuthorData(res.data.data)
+        })
+    }
     const handleUpload = () => {
 
     }
 
     const handleChange = (e) => {
         const { name } = e.target;
-        setText({
-            ...text,
+        setEditAuthorData({
+            ...editAuthorData,
             [name]: e.target.value
         })
-        // console.log("text", text.author_image);
     }
 
-    const handleSubmit = async() => {
-        try{
-            axios.post(`${authorUrl}`,{
-                title: text.title,
-                author_image: text.author_image
-            })
-              .then((res) => {
-                console.log("post data", res)
+    const handleSubmit = () => {
+        axios.put(`${authorUrl}/${authorId}`, {
+            title: editAuthorData?.title,
+            author_image: editAuthorData?.author_image
+        })
+          .then((res) => {
+            console.log("edit data", res)
+            if(res.status === 200){
+                alert('Author Update Successfully')
 
-                if(res.status === 201){
-                    alert('Autor created successfully')
-                    navigate('/category')
-                }
-            })
-        }catch(err){
-            console.log("Error", err);
-        }
+                navigate('/language')
+            }
+          })
     }
 
+    useEffect(() => {
+        getData()
+    }, [])
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
@@ -54,19 +60,25 @@ export const AddCategory = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Add Class</h3>
+                <h3>Edit Author</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={()=> navigate('/category')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={() => navigate('/language')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />
             <div className="add-author-container">
                 <div>
                     <label >Author Name</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Publisher Name' /><br />
+                    <input 
+                        className="publisher-box"
+                        value={editAuthorData?.title ?? ''}
+                        onChange={handleChange} 
+                        name='title'  
+                        type='text'
+                        placeholder='Publisher Name' /><br />
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>

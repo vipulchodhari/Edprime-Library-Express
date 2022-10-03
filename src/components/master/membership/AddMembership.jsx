@@ -1,78 +1,87 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import homeIcon from '../../../assets/home.png';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import dateFormat from "dateformat";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import '../../../styles/addmaster.css';
+import customerBorder from '../../../assets/upload.png';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { authorUrl } from '../../../utils/common';
 
 export const AddMembership = () => {
-    let [authorData, setAuthorData] = useState();
-    const [query, setQuery] = useState("");
+    const [text, setText] = useState({
+        title: "",
+        author_image: ""
+    })
 
-    const getData = async () => {
-        await axios.get('')
-            .then((res) => {
-                setAuthorData(res.data.data)
-                console.log(res.data.data)
+    const navigate = useNavigate();
+
+    const handleUpload = () => {
+
+    }
+
+    const handleChange = (e) => {
+        const { name } = e.target;
+        setText({
+            ...text,
+            [name]: e.target.value
+        })
+        // console.log("text", text.author_image);
+    }
+
+    const handleSubmit = async() => {
+        try{
+            axios.post(`${authorUrl}`,{
+                title: text.title,
+                author_image: text.author_image
             })
+              .then((res) => {
+                console.log("post data", res)
+
+                if(res.status === 201){
+                    alert('Autor created successfully')
+                    navigate('/membership')
+                }
+            })
+        }catch(err){
+            console.log("Error", err);
+        }
     }
-    // console.log("data", authorData);
 
-    authorData = authorData?.filter((el) =>
-        el.title.toLowerCase().includes(query) ||
-        el.title.toUpperCase().includes(query) ||
-        dateFormat(el.createdAt, "mm-dd-yyyy").toLowerCase().includes(query)
-        // el.status.toLowerCase().includes(query)
-    )
-
-    const searchAuthor = (e) => {
-        setQuery(e.target.value)
-    }
-    console.log("query", query);
-    console.log("filter data", authorData);
-
-    useEffect(() => {
-         getData()
-    }, [])
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master,Membership Plans</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Membership Plans</h3>
+                <h3>Add Class</h3>
                 <div className='display-flex'>
-                <button className="author-addbtn">Submit</button>
-                <button className="author-addbtn-color">Cancel</button>
-                          
+                    <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
+                    <button className="author-addbtn" onClick={()=> navigate('/member')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
-            
             </div>
-          
             <hr />
-           
+            <div className="add-author-container">
                 <div>
-            <p>Publisher Name</p>
-            <input className="publisher-box" type='text' placeholder='publisher  Name' />
-            <input className="publisher-box" type='text' placeholder='publisher  Name' />
+                    <label >Author Name</label><br />
+                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Publisher Name' /><br />
+                    <label>Description</label><br />
+                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                </div>
+                <div style={{display: "flex"}}>
+                    <label htmlFor="file-input" className='add-author-img-cont'>
+                        <img src={customerBorder} alt="upload pic" />
+                        {/* <p style={{ marginTop: '0px', color: 'gray' }}><strong>dummy image</strong></p> */}
+                    </label>
+                    <input
+                        style={{ display: 'none', cursor: 'pointer' }}
+                        // style={{ marginTop:'25px' }}
+                        id="file-input"
+                        type='file'
+                        onChange={handleUpload}
+                    />
+                </div>
             </div>
-             <div>
-           
-            </div>
-            <div>
-            <p>Publisher Address</p>
-            <input className="publisher-add-box" type='text' />
-            <p>Description</p>
-           
-            </div>
-            <div>
-            <input className="publisher-add-box" type='text' />
-            </div>
-          
         </div>
     </div>
 }
