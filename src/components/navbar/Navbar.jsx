@@ -123,7 +123,7 @@ export const Navbar = () => {
                             {openM ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                     </ListItem>
-                    <Collapse in={openM} timeout="auto" unmountOnExit>
+                    <Collapse in={openM} timeout="auto" unmountOnExit><hr/>
                         <List component="div" disablePadding>
                             <ListItemButton onClick={handleClickSec}
                                 style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
