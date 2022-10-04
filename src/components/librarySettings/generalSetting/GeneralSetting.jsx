@@ -1,7 +1,19 @@
-// import '../../styles/librarySettings.css';
+import '../../../styles/librarySettings.css';
+import homeIcon from '../../../assets/home.png';
 
 export const GeneralSetting = () => {
-    return <div>
+    return <div className="author-container">
+    <h3 className='author-heading'>Set Up</h3>
+    <div className='author-top'>
+        <img src={homeIcon} alt='' />
+        <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Library Setting</p>
+    </div>
+    <div className="author-cont">
+        <div className="author-btnFlex">
+            <h3>Library Setting</h3>
+        </div>
+        <hr />
+        <div >
         <div className="library-setting-heading">General Setting for Library Module</div>
         <table className="library-setting-table-cont">
             <tbody>
@@ -65,5 +77,7 @@ export const GeneralSetting = () => {
                 </tr>
             </tbody>
         </table>
+        </div>
     </div>
+</div>
 }

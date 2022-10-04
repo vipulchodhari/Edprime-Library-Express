@@ -1,40 +1,49 @@
-.library-setting-heading{
+.library-setting-heading {
     background-color: #3699FF;
     color: #fff;
     padding: 15px;
     text-align: center;
-    width: 103.5%;
+    width: 104%;
     margin-left: -19px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
-.library-setting-table-cont{
+
+.library-setting-table-cont {
     border: 1px solid lightgray;
     width: 100%;
     margin-top: 20px;
 }
-.library-setting-table-cont > tbody> tr>td,
-.library-setting-table-cont > tbody> tr>th{
+
+.library-setting-table-cont>tbody>tr>td,
+.library-setting-table-cont>tbody>tr>th {
     border-bottom: 1px solid lightgray;
     border-right: 1px solid lightgray;
     padding: 15px 0px;
 }
-.library-setting-table-cont > tbody> tr>td:nth-child(1),
-.library-setting-table-cont > tbody> tr>th:nth-child(1){
+
+.library-setting-table-cont>tbody>tr>td:nth-child(1),
+.library-setting-table-cont>tbody>tr>th:nth-child(1) {
     padding-left: 25px;
 }
-.table-toggle-btn{
+
+.table-toggle-btn {
     text-align: center;
 }
+
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 25px;
-}  
-.switch > input { 
+}
+
+.switch>input {
     opacity: 0;
     width: 0;
     height: 0;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -46,6 +55,7 @@
     -webkit-transition: .4s;
     transition: .4s;
 }
+
 .slider:before {
     position: absolute;
     content: "";
@@ -57,21 +67,40 @@
     -webkit-transition: .1s;
     transition: .3s;
 }
-.switch > input:checked + .slider {
+
+.switch>input:checked+.slider {
     background-color: #2196F3;
 }
-.switch > input:focus + .slider {
+
+.switch>input:focus+.slider {
     box-shadow: 0 0 1px #2196F3;
 }
-.switch > input:checked + .slider:before {
+
+.switch>input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(35px);
 }
- /* Rounded sliders */
+
+/* Rounded sliders */
 .slider.round {
     border-radius: 34px;
 }
+
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+/* ------------checout borrowed---------------- */
+
+.checkout-align>input {
+    outline: none;
+    border: 1px solid lightgray;
+    text-align: center;
+    width: 62%;
+    padding: 10px;
+    margin: -10px;
+    border-radius: 8px;
+    background-color: rgb(240,243,246);
 }
