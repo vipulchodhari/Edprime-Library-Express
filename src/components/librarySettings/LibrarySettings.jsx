@@ -1,6 +1,8 @@
 import homeIcon from '../../assets/home.png';
 import { GeneralSetting } from './GeneralSetting';
 import '../../styles/librarySettings.css';
+import { CheckoutSettings } from './CheckoutSettings';
+import { Reservations } from './Reservations';
 
 export const LibrarySettings = () => {
     return <div className="author-container">

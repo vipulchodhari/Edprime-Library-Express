@@ -48,6 +48,7 @@ export const Subject = () => {
                 })
             alert("Author Deleted")
             getData()
+           
         } catch (err) {
             console.log("error", err);
         }
