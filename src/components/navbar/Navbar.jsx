@@ -25,16 +25,24 @@ const drawerWidth = 240;
 
 export const Navbar = () => {
     let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master",
-        "Class Master", "Subject Master", "Membership Plans", "Location Master"]
+                    "Class Master", "Subject Master", "Membership Plans", "Location Master"]
+
+    let librarySetting = ["General Settings", "Checkout & Borrowings", "Reservations", "Renew", 
+                           "Fine Charges", "Membership Plan", "Book Health Chage"]    
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
+    const [openL, setOpenL] = React.useState(true);
     const navigate = useNavigate()
     const handleClick = () => {
         setOpenM(!openM);
         setOpenS(false)
+        setOpenL(false)
     };
     const handleClickSec = () => {
         setOpenS(!openS)
+    };
+    const handleClickLibrarySetting = () => {
+        setOpenL(!openL)
     };
     const handleNavigate = (el) => {
         // console.log("receive end point", el)
@@ -58,6 +66,10 @@ export const Navbar = () => {
             navigate('/membership')
         } else if (el === "Location Master") {
             navigate('/location')
+        }else if(el === "General Settings"){
+            navigate('general-settings')
+        }else if(el === "Checkout & Borrowings"){
+            navigate('checkout-borrowings')
         }
     }
 
@@ -144,16 +156,27 @@ export const Navbar = () => {
                         </div>
                     })}
                     <Collapse in={openM} timeout="auto" unmountOnExit>
-                        <Link to='/library-settings' className='link-decoration'>
+                        {/* <Link to='/library-settings' className='link-decoration'> */}
                             <List component="div" disablePadding>
-                                <ListItemButton
+                                <ListItemButton onClick={handleClickLibrarySetting}
                                     style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
                                     sx={{ pl: 4.5 }}>
                                     <ListItemText primary="Library Settings" />
                                 </ListItemButton>
                             </List>
-                        </Link>
+                        {/* </Link> */}
                     </Collapse>
+                    {librarySetting.map((el, i) => {
+                        return <div key={i} >
+                            <Collapse in={openL} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
+                                <List component="div" disablePadding>
+                                    <ListItemButton sx={{ pl: 7 }}>
+                                        <ListItemText primary={el} />
+                                    </ListItemButton>
+                                </List>
+                            </Collapse>
+                        </div>
+                    })}
                     {/* <Link to='/library-settings' className='link-decoration'> */}
                         <ListItem disablePadding>
                             <ListItemButton>

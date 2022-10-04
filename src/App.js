@@ -30,6 +30,8 @@ import { Editgenre } from './components/master/genre/Editgenre';
 import { Editlanguage } from './components/master/language/Editlanguage';
 import { Editlocation } from './components/master/location/Editlocation';
 import { EditSubject } from './components/master/subject/EditSubject';
+import { GeneralSetting } from './components/librarySettings/generalSetting/GeneralSetting';
+import { CheckoutBorrowing } from './components/librarySettings/ceckoutBorrowing/CheckoutBorrowing';
 
 
 function App() {
@@ -49,7 +51,7 @@ function App() {
           <Route path='/subject' element={<Subject/>}></Route>
           <Route path='/membership' element={<Membership/>}></Route>
           <Route path='/location' element={<Location/>}></Route>
-          <Route path='/library-settings' element={<LibrarySettings/>}></Route>
+          {/* <Route path='/library-settings' element={<LibrarySettings/>}></Route> */}
 
            {/* addmaster Routes */}
 
@@ -73,6 +75,11 @@ function App() {
           <Route path='/language/editlanguage/:id' element={<Editlanguage/>}></Route>
           <Route path='/location/editlocation/:id' element={<Editlocation/>}></Route>
           <Route path='/subject/editsubject/:id' element={<EditSubject/>}></Route>
+
+          {/* -----------library settings routes -------------*/}
+
+          <Route path='/general-settings' element={<GeneralSetting/>}></Route>
+          <Route path='/checkout-borrowings' element={<CheckoutBorrowing/>}></Route>
         </Routes>
       </div>
     </div>
