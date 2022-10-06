@@ -72,6 +72,8 @@ export const Navbar = () => {
             navigate('/checkout-borrowings')
         }else if(el === "Renew"){
             navigate('/renew')
+        }else if(el === "Reservations"){
+            navigate('/reservations')
         }
     }
 

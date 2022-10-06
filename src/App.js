@@ -33,6 +33,7 @@ import { EditSubject } from './components/master/subject/EditSubject';
 import { GeneralSetting } from './components/librarySettings/generalSetting/GeneralSetting';
 import { CheckoutBorrowing } from './components/librarySettings/ceckoutBorrowing/CheckoutBorrowing';
 import { Renew } from './components/librarySettings/renew/Renew';
+import { ReservationsSettings } from './components/librarySettings/reservationsSettings/ReservationSettings';
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
           <Route path='/general-settings' element={<GeneralSetting/>}></Route>
           <Route path='/checkout-borrowings' element={<CheckoutBorrowing/>}></Route>
           <Route path='/renew' element={<Renew/>}></Route>
+          <Route path='/reservations' element={<ReservationsSettings/>}></Route>
         </Routes>
       </div>
     </div>
