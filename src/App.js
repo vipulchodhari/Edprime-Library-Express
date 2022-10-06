@@ -32,7 +32,11 @@ import { Editlocation } from './components/master/location/Editlocation';
 import { EditSubject } from './components/master/subject/EditSubject';
 import { GeneralSetting } from './components/librarySettings/generalSetting/GeneralSetting';
 import { CheckoutBorrowing } from './components/librarySettings/ceckoutBorrowing/CheckoutBorrowing';
+<<<<<<< HEAD
 import { ReservationsSettings } from './components/librarySettings/reservationsSettings/ReservationSettings';
+=======
+import { Renew } from './components/librarySettings/renew/Renew';
+>>>>>>> 13ec07fe612df6573617915337f2b9ff40bd0f74
 
 
 function App() {
@@ -81,7 +85,11 @@ function App() {
 
           <Route path='/general-settings' element={<GeneralSetting/>}></Route>
           <Route path='/checkout-borrowings' element={<CheckoutBorrowing/>}></Route>
+<<<<<<< HEAD
           <Route path='/reservations-settings' element={<ReservationsSettings/>}></Route>
+=======
+          <Route path='/renew' element={<Renew/>}></Route>
+>>>>>>> 13ec07fe612df6573617915337f2b9ff40bd0f74
         </Routes>
       </div>
     </div>
