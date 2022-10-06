@@ -67,9 +67,11 @@ export const Navbar = () => {
         } else if (el === "Location Master") {
             navigate('/location')
         }else if(el === "General Settings"){
-            navigate('general-settings')
+            navigate('/general-settings')
         }else if(el === "Checkout & Borrowings"){
-            navigate('checkout-borrowings')
+            navigate('/checkout-borrowings')
+        }else if(el === "Renew"){
+            navigate('/renew')
         }
     }
 

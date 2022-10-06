@@ -1,6 +1,6 @@
 import homeIcon from '../../../assets/home.png';
 
-export const CheckoutBorrowing = () => {
+export const Renew = () => {
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
@@ -13,7 +13,7 @@ export const CheckoutBorrowing = () => {
             </div>
             <hr />
             <div >
-                <div className="library-setting-heading">Checkout and Borrowing</div>
+                <div className="library-setting-heading">Renew</div>
                 <table className="library-setting-table-cont">
                     <tbody>
                         <tr>
@@ -22,7 +22,7 @@ export const CheckoutBorrowing = () => {
                             <th style={{ padding: '0px 30px' }}>Student</th>
                         </tr>
                         <tr>
-                            <td>Maximum no. of Books checkout by member</td>
+                            <td>No. of times renewal allowed for particular issuance</td>
                             <td className="table-toggle-btn checkout-align">
                                 <input defaultValue={2} type='text' />
                             </td>
@@ -31,35 +31,38 @@ export const CheckoutBorrowing = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Maximum allowed days to borrow by Member (in days)</td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={15} type='text' />
+                            <td>Renewal allowed after due date</td>
+                            <td className="table-toggle-btn">
+                                <label className="switch">
+                                    <input type="checkbox" />
+                                    <span className="slider round"></span>
+                                </label>
                             </td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={10} type='text' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>send reminder to borrower before due date(in days)</td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={2} type='text' />
-                            </td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={2} type='text' />
+                            <td className="table-toggle-btn">
+                                <label className="switch">
+                                    <input type="checkbox" />
+                                    <span className="slider round"></span>
+                                </label>
                             </td>
                         </tr>
                         <tr>
-                            <td>send reminder to borrower for overdue</td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={'Everyday'} type='text' />
+                            <td>Fine charges waive for delay renewal</td>
+                            <td className="table-toggle-btn">
+                                <label className="switch">
+                                    <input type="checkbox" />
+                                    <span className="slider round"></span>
+                                </label>
                             </td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={'Every Hour'} type='text' />
+                            <td className="table-toggle-btn">
+                                <label className="switch">
+                                    <input type="checkbox" />
+                                    <span className="slider round"></span>
+                                </label>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>    
+    </div>
 }
