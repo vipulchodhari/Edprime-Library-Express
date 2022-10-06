@@ -69,18 +69,11 @@ export const Navbar = () => {
         }else if(el === "General Settings"){
             navigate('/general-settings')
         }else if(el === "Checkout & Borrowings"){
-<<<<<<< HEAD
-            navigate('checkout-borrowings')
-        }else if(el === "Reservations"){
-            navigate('reservations-settings')
-    }}
-=======
             navigate('/checkout-borrowings')
         }else if(el === "Renew"){
             navigate('/renew')
         }
     }
->>>>>>> 13ec07fe612df6573617915337f2b9ff40bd0f74
 
     return <div>
         <Box sx={{ display: 'flex' }}>
