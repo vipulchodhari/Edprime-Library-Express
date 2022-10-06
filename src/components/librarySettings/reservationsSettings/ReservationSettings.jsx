@@ -1,6 +1,6 @@
 import homeIcon from '../../../assets/home.png';
 
-export const CheckoutBorrowing = () => {
+export const  ReservationsSettings= () => {
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
@@ -13,7 +13,7 @@ export const CheckoutBorrowing = () => {
             </div>
             <hr />
             <div >
-                <div className="library-setting-heading">General Setting for Library Module</div>
+                <div className="library-setting-heading">Reservations</div>
                 <table className="library-setting-table-cont">
                     <tbody>
                         <tr>
@@ -22,7 +22,7 @@ export const CheckoutBorrowing = () => {
                             <th style={{ padding: '0px 30px' }}>Student</th>
                         </tr>
                         <tr>
-                            <td>Maximum no. of Books checkout by member</td>
+                            <td>Maximum reservations by a member at a time</td>
                             <td className="table-toggle-btn checkout-align">
                                 <input defaultValue={2} type='text' />
                             </td>
@@ -31,7 +31,7 @@ export const CheckoutBorrowing = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>Maximum allowed days to borrow by Member (in days)</td>
+                            <td>Maximum threshold time for reservations booking (in Hrs)</td>
                             <td className="table-toggle-btn checkout-align">
                                 <input defaultValue={15} type='text' />
                             </td>
@@ -40,7 +40,7 @@ export const CheckoutBorrowing = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>send reminder to borrower before due date(in days)</td>
+                            <td>Send reminder before quashing reservations (in Hrs)</td>
                             <td className="table-toggle-btn checkout-align">
                                 <input defaultValue={2} type='text' />
                             </td>
@@ -49,13 +49,7 @@ export const CheckoutBorrowing = () => {
                             </td>
                         </tr>
                         <tr>
-                            <td>send reminder to borrower for overdue</td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={'Everyday'} type='text' />
-                            </td>
-                            <td className="table-toggle-btn checkout-align">
-                                <input defaultValue={'Every Hour'} type='text' />
-                            </td>
+                          
                         </tr>
                     </tbody>
                 </table>

@@ -70,8 +70,9 @@ export const Navbar = () => {
             navigate('general-settings')
         }else if(el === "Checkout & Borrowings"){
             navigate('checkout-borrowings')
-        }
-    }
+        }else if(el === "Reservations"){
+            navigate('reservations-settings')
+    }}
 
     return <div>
         <Box sx={{ display: 'flex' }}>
