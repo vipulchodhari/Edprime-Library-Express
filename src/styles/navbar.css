@@ -52,3 +52,9 @@
     text-decoration: none;
     color: rgb(63,74,74);
 }
+.book-dropdown-cont{
+    background-color: rgb(236,241,247);
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+}
