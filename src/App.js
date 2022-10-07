@@ -34,6 +34,7 @@ import { GeneralSetting } from './components/librarySettings/generalSetting/Gene
 import { CheckoutBorrowing } from './components/librarySettings/ceckoutBorrowing/CheckoutBorrowing';
 import { Renew } from './components/librarySettings/renew/Renew';
 import { ReservationsSettings } from './components/librarySettings/reservationsSettings/ReservationSettings';
+import { FineChargesSettings } from './components/librarySettings/fineCharges/FineChargesSettings';
 
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
           <Route path='/checkout-borrowings' element={<CheckoutBorrowing/>}></Route>
           <Route path='/renew' element={<Renew/>}></Route>
           <Route path='/reservations' element={<ReservationsSettings/>}></Route>
+          <Route path='/fine-charges' element={<FineChargesSettings/>}></Route>
         </Routes>
       </div>
     </div>

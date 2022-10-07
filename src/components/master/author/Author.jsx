@@ -26,7 +26,7 @@ export const Author = () => {
                 // console.log(res.data)
             })
     }
-    // console.log("data", authorData);
+    console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
         el?.title?.toLowerCase().includes(query) ||
