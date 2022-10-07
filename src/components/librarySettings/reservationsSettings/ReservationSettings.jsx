@@ -1,6 +1,15 @@
 import homeIcon from '../../../assets/home.png';
+import { authorUrl } from "../../../utils/common";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export const  ReservationsSettings= () => {
+
+
+
+             
+
+
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>

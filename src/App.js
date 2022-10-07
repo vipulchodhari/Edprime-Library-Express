@@ -89,7 +89,6 @@ function App() {
           <Route path='/reservations' element={<ReservationsSettings/>}></Route>
           <Route path='/membershipplan' element={<MembershipPlan/>}></Route>
           <Route path='/bookhealthcharges' element={<BookHealth/>}></Route>
-          
           <Route path='/fine-charges' element={<FineChargesSettings/>}></Route>
         </Routes>
       </div>
