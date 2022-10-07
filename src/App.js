@@ -22,7 +22,7 @@ import { AddLocation } from './components/master/location/AddLocation';
 import { AddSubject } from './components/master/subject/AddSubject';
 import { AddMembership } from './components/master/membership/AddMembership';
 import { EditAuthor } from './components/master/author/EditAuthor';
-import { LibrarySettings } from './components/librarySettings/LibrarySettings';
+// import { LibrarySettings } from './components/librarySettings/LibrarySettings';
 import { EditPublisher } from './components/master/publisher/EditPublisher';
 import { EditCategory } from './components/master/category/EditCategory';
 import { EditClass } from './components/master/class/EditClass';
@@ -36,6 +36,7 @@ import { Renew } from './components/librarySettings/renew/Renew';
 import { ReservationsSettings } from './components/librarySettings/reservationsSettings/ReservationSettings';
 import { MembershipPlan } from './components/librarySettings/membershipplanSettings/MembershipPlan';
 import { BookHealth } from './components/librarySettings/bookhealth/BookHealth';
+import { FineChargesSettings } from './components/librarySettings/fineCharges/FineChargesSettings';
 
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
           <Route path='/membershipplan' element={<MembershipPlan/>}></Route>
           <Route path='/bookhealthcharges' element={<BookHealth/>}></Route>
           
+          <Route path='/fine-charges' element={<FineChargesSettings/>}></Route>
         </Routes>
       </div>
     </div>
