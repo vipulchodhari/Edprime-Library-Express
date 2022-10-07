@@ -34,6 +34,8 @@ import { GeneralSetting } from './components/librarySettings/generalSetting/Gene
 import { CheckoutBorrowing } from './components/librarySettings/ceckoutBorrowing/CheckoutBorrowing';
 import { Renew } from './components/librarySettings/renew/Renew';
 import { ReservationsSettings } from './components/librarySettings/reservationsSettings/ReservationSettings';
+import { MembershipPlan } from './components/librarySettings/membershipplanSettings/MembershipPlan';
+import { BookHealth } from './components/librarySettings/bookhealth/BookHealth';
 
 
 function App() {
@@ -84,6 +86,9 @@ function App() {
           <Route path='/checkout-borrowings' element={<CheckoutBorrowing/>}></Route>
           <Route path='/renew' element={<Renew/>}></Route>
           <Route path='/reservations' element={<ReservationsSettings/>}></Route>
+          <Route path='/membershipplan' element={<MembershipPlan/>}></Route>
+          <Route path='/bookhealthcharges' element={<BookHealth/>}></Route>
+          
         </Routes>
       </div>
     </div>

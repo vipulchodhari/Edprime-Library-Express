@@ -74,6 +74,10 @@ export const Navbar = () => {
             navigate('/renew')
         }else if(el === "Reservations"){
             navigate('/reservations')
+        }else if(el === "Membership Plan"){
+            navigate('/membershipplan')
+        }else if(el === "Book Health Chage"){
+            navigate('/bookhealthcharges')
         }
     }
 
