@@ -28,7 +28,7 @@ export const Navbar = () => {
                     "Class Master", "Subject Master", "Membership Plans", "Location Master"]
 
     let librarySetting = ["General Settings", "Checkout & Borrowings", "Reservations", "Renew", 
-                           "Fine Charges", "Membership Plan", "Book Health Chage"]    
+                           "Fine Charges", "Book Health Chage",  "Membership Plan"]    
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
     const [openL, setOpenL] = React.useState(true);
