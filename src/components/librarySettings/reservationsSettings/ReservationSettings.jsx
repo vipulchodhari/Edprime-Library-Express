@@ -8,8 +8,6 @@ export const  ReservationsSettings= () => {
 
 
              
-
-
     return <div className="author-container">
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>

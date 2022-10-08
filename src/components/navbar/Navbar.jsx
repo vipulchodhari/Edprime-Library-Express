@@ -77,7 +77,7 @@ export const Navbar = () => {
             navigate('/reservations')
         }else if(el === "Membership Plan"){
             navigate('/membershipplan')
-        }else if(el === "Book Health Chage"){
+        }else if(el === "Book Health Charge"){
             navigate('/bookhealthcharges')
         }else if(el === "Fine Charges"){
             navigate('fine-charges')
