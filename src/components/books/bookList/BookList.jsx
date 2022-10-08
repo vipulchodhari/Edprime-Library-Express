@@ -60,9 +60,23 @@ export const BookList = () => {
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Books Manager</h3>
-                <Link to='/category/addcategory'>
+                <div >
+                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Aquire Book</button>
                 </Link>
+                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                    <button className="author-addbtn">Add Book</button>
+                </Link>
+                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                    <button className="author-addbtn">Book Import</button>
+                </Link>
+                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                    <button className="author-addbtn">Issue Book</button>
+                </Link>
+                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                    <button className="author-addbtn">Deposit Book</button>
+                </Link>
+                </div>
             </div>
             <hr />
             <input onChange={searchBooks} className="author-search-box" type='text' placeholder='Search...' />

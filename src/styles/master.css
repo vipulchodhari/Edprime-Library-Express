@@ -81,14 +81,13 @@
     color: #9EA5B9;
 }
 .author-addbtn{
-    height: 40px;
-    margin-top: 10px;
-    padding: 0px 50px;
+    height: 30px;
+    margin-top: 21px;
+    padding: 0px 10px;
     background-color: #3699FF;
     border: none;
     border-radius: 5px;
     color: #fff;
-    font-weight: 600;
     cursor: pointer;
 }
 .author-btnFlex{
