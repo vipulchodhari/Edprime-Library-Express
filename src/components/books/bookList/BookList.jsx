@@ -61,10 +61,10 @@ export const BookList = () => {
             <div className="author-btnFlex">
                 <h3>Books Manager</h3>
                 <div >
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/books/add-book' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Aquire Book</button>
                 </Link>
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/books/add-book' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Add Book</button>
                 </Link>
                 <Link to='/category/addcategory' style={{marginRight:'5px'}}>
