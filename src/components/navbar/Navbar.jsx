@@ -25,26 +25,31 @@ const drawerWidth = 240;
 
 export const Navbar = () => {
     let master = ["Category List", "Publisher Master", "Author Master", "Genre Master", "Language Master",
-                    "Class Master", "Subject Master", "Membership Plans", "Location Master"]
+        "Class Master", "Subject Master", "Membership Plans", "Location Master"]
 
-    let librarySetting = ["General Settings", "Checkout & Borrowings", "Reservations", "Renew", 
-                           "Fine Charges", "Book Health Chage",  "Membership Plan"]  
-                             
+    let librarySetting = ["General Settings", "Checkout & Borrowings", "Reservations", "Renew",
+        "Fine Charges", "Book Health Chage", "Membership Plan"]
     const [openM, setOpenM] = React.useState(true);
     const [openS, setOpenS] = React.useState(true);
     const [openL, setOpenL] = React.useState(true);
+    const [openB, setOpenB] = React.useState(true);
     const navigate = useNavigate()
     const handleClick = () => {
         setOpenM(!openM);
-        setOpenS(false)
-        setOpenL(false)
+        setOpenS(true)
+        setOpenL(true)
     };
     const handleClickSec = () => {
         setOpenS(!openS)
+        setOpenL(true)
     };
     const handleClickLibrarySetting = () => {
         setOpenL(!openL)
+        setOpenS(true)
     };
+    const handleClickBook = () => {
+        setOpenB(!openB)
+    }
     const handleNavigate = (el) => {
         // console.log("receive end point", el)
         if (el === "Category List") {
@@ -67,19 +72,19 @@ export const Navbar = () => {
             navigate('/membership')
         } else if (el === "Location Master") {
             navigate('/location')
-        }else if(el === "General Settings"){
+        } else if (el === "General Settings") {
             navigate('/general-settings')
-        }else if(el === "Checkout & Borrowings"){
+        } else if (el === "Checkout & Borrowings") {
             navigate('/checkout-borrowings')
-        }else if(el === "Renew"){
+        } else if (el === "Renew") {
             navigate('/renew')
-        }else if(el === "Reservations"){
+        } else if (el === "Reservations") {
             navigate('/reservations')
-        }else if(el === "Membership Plan"){
+        } else if (el === "Membership Plan") {
             navigate('/membershipplan')
-        }else if(el === "Book Health Charge"){
+        } else if (el === "Book Health Chage") {
             navigate('/bookhealthcharges')
-        }else if(el === "Fine Charges"){
+        } else if (el === "Fine Charges") {
             navigate('fine-charges')
         }
     }
@@ -120,13 +125,78 @@ export const Navbar = () => {
                         </ListItem>
                     </Link>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton onClick={handleClickBook}>
                             <ListItemIcon>
                                 <MenuBookIcon className='navbar-icon d-icon2' />
                             </ListItemIcon>
                             <ListItemText className='navbar-icon-text' primary='Books' />
                         </ListItemButton>
                     </ListItem>
+                    <div className='book-dropdown-cont'>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit><hr />
+                            <Link to='/book-list' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Book List' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/book-units' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Books Units' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/import-books' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Import Books' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/issue-book' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Issue Book' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/deposite-book' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Deposite Book' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/books-reservation' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Books Reservations' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/issued-book-units' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Issued Book Units' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/scrapped-books' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Scrapped Books' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/renewal-requests' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText sx={{ pl: 3.5 }} primary='Renewal Requests' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                    </div>
                     <Link to="/member" className='link-decoration'>
                         <ListItem disablePadding>
                             <ListItemButton>
@@ -146,7 +216,7 @@ export const Navbar = () => {
                             {openM ? <ExpandLess /> : <ExpandMore />}
                         </ListItemButton>
                     </ListItem>
-                    <Collapse in={openM} timeout="auto" unmountOnExit><hr/>
+                    <Collapse in={!openM} timeout="auto" unmountOnExit><hr />
                         <List component="div" disablePadding>
                             <ListItemButton onClick={handleClickSec}
                                 style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
@@ -155,48 +225,52 @@ export const Navbar = () => {
                             </ListItemButton>
                         </List>
                     </Collapse>
-                    {master.map((el, i) => {
-                        return <div key={i} >
-                            <Collapse in={openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
-                                <List component="div" disablePadding>
-                                    <ListItemButton sx={{ pl: 7 }}>
-                                        <ListItemText primary={el} />
-                                    </ListItemButton>
-                                </List>
-                            </Collapse>
-                        </div>
-                    })}
-                    <Collapse in={openM} timeout="auto" unmountOnExit>
+                    <div className='book-dropdown-cont'>
+                        {master.map((el, i) => {
+                            return <div key={i} >
+                                <Collapse in={!openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
+                                    <List component="div" disablePadding style={{ cursor: 'pointer' }}>
+                                        {/* <ListItemButton sx={{ pl: 7 }}> */}
+                                        <ListItemText sx={{ pl: 3.5 }} primary={el} />
+                                        {/* </ListItemButton> */}
+                                    </List>
+                                </Collapse>
+                            </div>
+                        })}
+                    </div>
+                    <Collapse in={!openM} timeout="auto" unmountOnExit><hr/>
                         {/* <Link to='/library-settings' className='link-decoration'> */}
-                            <List component="div" disablePadding>
-                                <ListItemButton onClick={handleClickLibrarySetting}
-                                    style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
-                                    sx={{ pl: 4.5 }}>
-                                    <ListItemText primary="Library Settings" />
-                                </ListItemButton>
-                            </List>
+                        <List component="div" disablePadding>
+                            <ListItemButton onClick={handleClickLibrarySetting}
+                                style={{ color: 'rgb(51,146,230)', fontWeight: '600' }}
+                                sx={{ pl: 4.5 }}>
+                                <ListItemText primary="Library Settings" />
+                            </ListItemButton>
+                        </List>
                         {/* </Link> */}
                     </Collapse>
+                    <div className='book-dropdown-cont'>
                     {librarySetting.map((el, i) => {
                         return <div key={i} >
-                            <Collapse in={openL} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
+                            <Collapse in={!openL} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                 <List component="div" disablePadding>
-                                    <ListItemButton sx={{ pl: 7 }}>
-                                        <ListItemText primary={el} />
-                                    </ListItemButton>
+                                    {/* <ListItemButton sx={{ pl: 7 }}> */}
+                                        <ListItemText sx={{ pl: 3.5 }} primary={el} style={{ cursor: 'pointer' }}/>
+                                    {/* </ListItemButton> */}
                                 </List>
                             </Collapse>
                         </div>
                     })}
+                    </div>
                     {/* <Link to='/library-settings' className='link-decoration'> */}
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <QuizIcon className='navbar-icon d-icon5' />
-                                </ListItemIcon>
-                                <ListItemText className='navbar-icon-text' primary='Demo' />
-                            </ListItemButton>
-                        </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <QuizIcon className='navbar-icon d-icon5' />
+                            </ListItemIcon>
+                            <ListItemText className='navbar-icon-text' primary='Demo' />
+                        </ListItemButton>
+                    </ListItem>
                     {/* </Link> */}
                 </List>
             </Drawer>
