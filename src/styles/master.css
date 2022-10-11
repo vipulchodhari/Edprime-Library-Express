@@ -24,6 +24,7 @@
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
+    padding-top: 2px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -83,7 +84,7 @@
 .author-addbtn{
     height: 30px;
     margin-top: 21px;
-    padding: 0px 10px;
+    padding: 0px 20px;
     background-color: #3699FF;
     border: none;
     border-radius: 5px;

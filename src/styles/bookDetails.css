@@ -1,0 +1,117 @@
+.book-details-container{
+    border: 1px solid black;
+    padding: 20px;
+    width: 78%;
+    margin: auto;
+    margin-left: 18%;
+    margin-top: 2%;
+}
+.book-details-main-tab{
+    color: rgb(63,74,74);
+}
+.book-details-tab{
+    display: grid;
+    grid-template-columns: 17% 83%;
+    gap: 25px;
+}
+.book-details-parent-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.book-details-grid{
+    display: grid;
+    /* grid-template-columns: 35% 13% 45%; */
+    grid-template-columns: auto auto auto;
+    text-align: left;
+    /* margin-right: 110px; */
+}
+.book-tab{
+    display: flex;
+    background-color: rgb(235, 238, 244);
+    margin-top: 20px;
+}
+.tabs {
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+    background: rgba(128, 128, 128, 0.075);
+    /* background-color: rgb(236, 241, 247); */
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    box-sizing: content-box;
+    position: relative;
+    outline: none;
+}
+.tabs:not(:last-child){
+    border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+.active-tabs{
+    /* background: white; */
+    background: rgb(54,153,255);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+}
+/* .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgb(88, 147, 241);
+} */
+.book-tab>button {
+    border: none;
+}
+.book-tab-colon{
+    font-weight: 600;
+}
+.content {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.active-content {
+    display: block;
+}
+
+/* -------------------------book unit item---------------- */
+.book-item-thead{
+    color: gray !important;
+}
+.book-item-tbody{
+    padding-top: 30px !important;
+    padding-bottom: 20px !important;
+}
+.item-due{
+    /* border: 1px solid black; */
+    background-color: rgb(255,244,222);
+    color: rgb(255,168,0);
+    padding: 8px;
+    border-radius: 10px;
+}
+.item-panding{
+    background-color: rgb(201,247,245);
+    color: rgb(46,202,195);
+    padding: 8px;
+    border-radius: 10px;
+}
+.item-over-due{
+    background-color: rgb(255,226,229);
+    color: rgb(248,110,125);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* --------------------------book Stock------------- */
+.book-stock-tab{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}

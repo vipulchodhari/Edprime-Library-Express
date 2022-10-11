@@ -18,12 +18,20 @@ export const Author = () => {
 
     const navigate = useNavigate();
 
+    // const getData = async () => {
+    //     await axios.get(`${authorUrl}?page=${activePage}`)
+    //         .then((res) => {
+    //             setAuthorData(res.data.data)
+    //             setItemCount(res?.data?.authorCount)
+    //             // console.log(res.data)
+    //         })
+    // }
     const getData = async () => {
-        await axios.get(`${authorUrl}?page=${activePage}`)
+        await axios.get(`${authorUrl}`)
             .then((res) => {
-                setAuthorData(res.data.data)
+                setAuthorData(res.data)
                 setItemCount(res?.data?.authorCount)
-                // console.log(res.data)
+                // console.log(res)
             })
     }
     console.log("data", authorData);

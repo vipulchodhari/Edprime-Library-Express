@@ -124,7 +124,9 @@ export const BookList = () => {
                                     <strong>Book</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
+                                <Link to={`/book-details/${book?._id}`} className='link-decoration'>
                                     <strong>{book.book_title}</strong>
+                                </Link>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>Jk. Scott</strong>
