@@ -64,13 +64,11 @@ export const AddMembership = () => {
             <div >
                 <div>
                     <label >Plan Name</label><br />
-                   
                     <div>
-                    
-                    <textarea onChange={handleChange} name='author_image' className="addbook-select-hiddenn" type='text' />
-                    </div><br/>
+                        <input onChange={handleChange} name='author_image' className="publisher-box add-publisher-input" type='text' />
+                    </div><br />
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="add-language-box" type='text' /><br /><br />
+                    <textarea onChange={handleChange} name='author_image' className="publisher-box membership-description" type='text' /><br /><br />
 
                     <div className="add-membership-validity">
                         <div>
@@ -79,18 +77,18 @@ export const AddMembership = () => {
                         </div>
                         <div>
                             <label>No. of Days</label><br />
-                            <input type='text' className="publisher-box add-memeber-box"/>
+                            <input type='text' className="publisher-box add-memeber-box" />
                         </div>
                     </div>
                     <div>
-                        <input type="radio" id='Reservations' name='Reservation' value="Reservations"/>
-                        <label htmlFor="Reservations">Allow Reservations</label><br/>
+                        <input type="radio" id='Reservations' name='Reservation' value="Reservations" />
+                        <label htmlFor="Reservations">Allow Reservations</label><br />
 
-                        <input type="radio" id="Charges" name='Charge' value="fine Charges"/>
-                        <label htmlFor="Charges">Waive fine Charges</label><br/>
+                        <input type="radio" id="Charges" name='Charge' value="fine Charges" />
+                        <label htmlFor="Charges">Waive fine Charges</label><br />
 
-                        <input id="Renewal" name='renewal' type="radio" value="Renewal"/>
-                        <label htmlFor="Renewal">Allow Renewal</label><br/>
+                        <input id="Renewal" name='renewal' type="radio" value="Renewal" />
+                        <label htmlFor="Renewal">Allow Renewal</label><br />
                     </div>
                 </div>
             </div>

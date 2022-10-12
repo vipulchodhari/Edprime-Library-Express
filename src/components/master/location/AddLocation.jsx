@@ -97,7 +97,7 @@ export const AddLocation = () => {
                         }}
                         onSearch={function noRefCheck() { }}
                         onSelect={(selectedList, selectedItem) => {
-                            let selectionId = [...category, selectedItem.id]
+                            let selectionId = [...selection, selectedItem.id]
                             setSelection(selectionId);
 
                             // console.log("author data", selectedItem);

@@ -52,6 +52,14 @@
 .publisher-description{
     height: 100px;
 }
+.language-description{
+    height: 100px;
+    width: 100%;
+}
+.membership-description{
+    height: 100px;
+    width: 95%;
+}
 /* .publisher-add-box{
     padding: 2px;
     width: 40%;
@@ -86,12 +94,6 @@
     height: 90px;
     border-radius: 5px;
 }
-.addbook-select-hiddenn{
-    width: 1200px;
-    border-radius: 5px;
-    margin-top: 20px;
-
-}
 .addlanguage-name{
     width: 1200px;
     height: 40px;
@@ -100,10 +102,7 @@
 
 }
 .add-language-box{
-    width: 1200px;
-    height: 80px;
-    margin-top: 20px;
-    border-radius: 5px;
+    width: 100%;
 }
 .location-selection-cont>div>.multiSelectContainer{
     margin-top: 15px;

@@ -66,10 +66,10 @@ export const AddLanguage = () => {
                     <label >Langauge Name</label><br />
                     <div>
                     
-                    <textarea onChange={handleChange} name='author_image' className="addbook-select-hiddenn" type='text' />
+                    <input onChange={handleChange} className="publisher-box add-language-box" name='author_image' type='text' />
                     </div>
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="add-language-box" type='text' />
+                    <textarea onChange={handleChange} name='author_image' className="publisher-box language-description" type='text' />
                 </div>
             </div>
         </div>
