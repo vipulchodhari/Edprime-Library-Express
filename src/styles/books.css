@@ -60,3 +60,31 @@
 .bookslider.bookround:before {
     border-radius: 50%;
 }
+
+
+/* -----------add book---------------- */
+
+.add-book-container{
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    gap: 30px;
+}
+.add-book-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+}
+.add-book-grid > div > div > div{
+    width: 95%;
+}
+.add-book-img-cont{
+    margin-left: 0px;
+}
+.addbook-search-box{
+    width: 95%;
+    border: 1px solid rgb(204,204,204);
+}
+.addbook-search-box::placeholder{
+    color: rgb(117,117,117);
+}

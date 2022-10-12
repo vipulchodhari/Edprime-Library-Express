@@ -134,65 +134,67 @@ export const Navbar = () => {
                     </ListItem>
                     <div className='book-dropdown-cont'>
                         <Collapse in={!openB} timeout="auto" unmountOnExit><hr />
+                        <ListItem disablePadding>
                             <Link to='/book-list' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Book List' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Book List' />
                                 </List>
                             </Link>
+                        </ListItem>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/book-units' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Books Units' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Books Units' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/import-books' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Import Books' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Import Books' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/issue-book' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Issue Book' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Issue Book' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/deposite-book' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Deposite Book' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Deposite Book' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/books-reservation' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Books Reservations' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Books Reservations' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/issued-book-units' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Issued Book Units' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Issued Book Units' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/scrapped-books' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Scrapped Books' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Scrapped Books' />
                                 </List>
                             </Link>
                         </Collapse>
                         <Collapse in={!openB} timeout="auto" unmountOnExit>
                             <Link to='/renewal-requests' className='link-decoration'>
                                 <List component="div" disablePadding>
-                                    <ListItemText sx={{ pl: 3.5 }} primary='Renewal Requests' />
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Renewal Requests' />
                                 </List>
                             </Link>
                         </Collapse>
@@ -231,7 +233,14 @@ export const Navbar = () => {
                                 <Collapse in={!openS} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                     <List component="div" disablePadding style={{ cursor: 'pointer' }}>
                                         {/* <ListItemButton sx={{ pl: 7 }}> */}
-                                        <ListItemText sx={{ pl: 3.5 }} primary={el} />
+                                        <ListItemText 
+                                            sx={{ pl: 3.5 }} 
+                                            primary={el}
+                                            className='master-text' 
+                                            onClick={() => {
+                                                // document.body.style.background = 'darkgreen'
+                                            }}
+                                        />
                                         {/* </ListItemButton> */}
                                     </List>
                                 </Collapse>
@@ -255,7 +264,7 @@ export const Navbar = () => {
                             <Collapse in={!openL} timeout="auto" unmountOnExit onClick={(e) => handleNavigate(el)}>
                                 <List component="div" disablePadding>
                                     {/* <ListItemButton sx={{ pl: 7 }}> */}
-                                        <ListItemText sx={{ pl: 3.5 }} primary={el} style={{ cursor: 'pointer' }}/>
+                                        <ListItemText className='master-text' sx={{ pl: 3.5 }} primary={el} style={{ cursor: 'pointer' }}/>
                                     {/* </ListItemButton> */}
                                 </List>
                             </Collapse>

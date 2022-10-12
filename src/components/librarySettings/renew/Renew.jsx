@@ -10,6 +10,7 @@ export const Renew = () => {
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Library Setting</h3>
+                <button className="author-addbtn">SAVE</button>
             </div>
             <hr />
             <div >

@@ -61,13 +61,13 @@ export const BookList = () => {
             <div className="author-btnFlex">
                 <h3>Books Manager</h3>
                 <div >
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/books/add-book' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Aquire Book</button>
                 </Link>
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/books/add-book' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Add Book</button>
                 </Link>
-                <Link to='/book-list/book-imports' style={{marginRight:'5px'}}>
+                <Link to='/import-books' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Book Import</button>
                 </Link>
                 <Link to='/category/addcategory' style={{marginRight:'5px'}}>
@@ -124,7 +124,9 @@ export const BookList = () => {
                                     <strong>Book</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
+                                <Link to={`/book-details/${book?._id}`} className='link-decoration'>
                                     <strong>{book.book_title}</strong>
+                                </Link>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>Jk. Scott</strong>
