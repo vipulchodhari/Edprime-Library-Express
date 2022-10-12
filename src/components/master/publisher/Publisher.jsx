@@ -70,9 +70,9 @@ export const Publisher= () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Author Master</h3>
+                <h3>Publisher Master</h3>
                 <Link to='/publisher/addpublisher'>
-                    <button className="author-addbtn">ADD AUTHOR</button>
+                    <button className="author-addbtn">ADD PUBLISHER</button>
                 </Link>
             </div>
             <hr />

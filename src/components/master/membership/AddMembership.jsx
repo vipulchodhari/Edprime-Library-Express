@@ -27,21 +27,21 @@ export const AddMembership = () => {
         // console.log("text", text.author_image);
     }
 
-    const handleSubmit = async() => {
-        try{
-            axios.post(`${authorUrl}`,{
+    const handleSubmit = async () => {
+        try {
+            axios.post(`${authorUrl}`, {
                 title: text.title,
                 author_image: text.author_image
             })
-              .then((res) => {
-                console.log("post data", res)
+                .then((res) => {
+                    console.log("post data", res)
 
-                if(res.status === 201){
-                    alert('Autor created successfully')
-                    navigate('/membership')
-                }
-            })
-        }catch(err){
+                    if (res.status === 201) {
+                        alert('Autor created successfully')
+                        navigate('/membership')
+                    }
+                })
+        } catch (err) {
             console.log("Error", err);
         }
     }
@@ -54,32 +54,44 @@ export const AddMembership = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Add Class</h3>
+                <h3>Membership Plan</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={()=> navigate('/member')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={() => navigate('/member')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />
-            <div className="add-author-container">
+            <div >
                 <div>
-                    <label >Author Name</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Publisher Name' /><br />
+                    <label >Plan Name</label><br />
+                   
+                    <div>
+                    
+                    <textarea onChange={handleChange} name='author_image' className="addbook-select-hiddenn" type='text' />
+                    </div><br/>
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
-                </div>
-                <div style={{display: "flex"}}>
-                    <label htmlFor="file-input" className='add-author-img-cont'>
-                        <img src={customerBorder} alt="upload pic" />
-                        {/* <p style={{ marginTop: '0px', color: 'gray' }}><strong>dummy image</strong></p> */}
-                    </label>
-                    <input
-                        style={{ display: 'none', cursor: 'pointer' }}
-                        // style={{ marginTop:'25px' }}
-                        id="file-input"
-                        type='file'
-                        onChange={handleUpload}
-                    />
+                    <textarea onChange={handleChange} name='author_image' className="add-language-box" type='text' /><br /><br />
+
+                    <div className="add-membership-validity">
+                        <div>
+                            <label>Validity Period</label><br />
+                            <input type='text' className="publisher-box add-memeber-box" />
+                        </div>
+                        <div>
+                            <label>No. of Days</label><br />
+                            <input type='text' className="publisher-box add-memeber-box"/>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="radio" id='Reservations' name='Reservation' value="Reservations"/>
+                        <label htmlFor="Reservations">Allow Reservations</label><br/>
+
+                        <input type="radio" id="Charges" name='Charge' value="fine Charges"/>
+                        <label htmlFor="Charges">Waive fine Charges</label><br/>
+
+                        <input id="Renewal" name='renewal' type="radio" value="Renewal"/>
+                        <label htmlFor="Renewal">Allow Renewal</label><br/>
+                    </div>
                 </div>
             </div>
         </div>

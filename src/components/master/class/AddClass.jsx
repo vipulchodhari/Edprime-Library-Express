@@ -63,11 +63,13 @@ export const AddClass = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Publisher Name' /><br />
+                    <label >Class Name</label><br />
+                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Class Name' /><br />
                     <label>Description</label><br />
                     <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>
+                <div>
+                <label className="add-category-img">Class Image </label>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>
                         <img src={customerBorder} alt="upload pic" />
@@ -80,6 +82,7 @@ export const AddClass = () => {
                         type='file'
                         onChange={handleUpload}
                     />
+                </div>
                 </div>
             </div>
         </div>

@@ -37,6 +37,7 @@ import { ReservationsSettings } from './components/librarySettings/reservationsS
 import { MembershipPlan } from './components/librarySettings/membershipplanSettings/MembershipPlan';
 import { BookHealth } from './components/librarySettings/bookhealth/BookHealth';
 import { FineChargesSettings } from './components/librarySettings/fineCharges/FineChargesSettings';
+import { BookImport } from './components/books/bookImport/BookImport';
 
 
 function App() {
@@ -90,6 +91,8 @@ function App() {
           <Route path='/membershipplan' element={<MembershipPlan/>}></Route>
           <Route path='/bookhealthcharges' element={<BookHealth/>}></Route>
           <Route path='/fine-charges' element={<FineChargesSettings/>}></Route>
+          <Route path='/import-books' element={<BookImport/>}></Route>
+
         </Routes>
       </div>
     </div>

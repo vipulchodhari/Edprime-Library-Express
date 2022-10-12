@@ -3,6 +3,9 @@
     display: grid;
     grid-template-columns: 70% 30%;
 }
+.add-publisher-container{
+    grid-template-columns: 47% 47%;
+}
 .author-addbtn-color{
     height: 40px;
     margin-top: 10px;
@@ -40,10 +43,16 @@
     border: 1px solid #9EA5B9;
     outline: none;
 }
+.add-memeber-box{
+    width: 97%;
+}
+.add-publisher-input{
+    width: 95%;
+}
 .publisher-description{
     height: 100px;
 }
-.publisher-add-box{
+/* .publisher-add-box{
     padding: 2px;
     width: 40%;
     height: 70px;
@@ -58,7 +67,7 @@
     margin-top: 20px;
     border-radius: 5px;
     border: 1px solid #9EA5B9;
-}
+} */
 .add-author-img-cont{
     padding: 30px;
     height: 140px;
@@ -67,11 +76,48 @@
     border-radius: 10px;
     background-color: rgb(240,243,246);
 }
+.add-publisher-img-cont{
+    margin-top: 15px;
+    margin-left: 0px;
+}
 .add-author-img-cont > img{
     cursor: pointer;
     width: 90px;
     height: 90px;
     border-radius: 5px;
 }
+.addbook-select-hiddenn{
+    width: 1200px;
+    border-radius: 5px;
+    margin-top: 20px;
+
+}
+.addlanguage-name{
+    width: 1200px;
+    height: 40px;
+    margin-top: 12px;
+    border-radius: 5px;
+
+}
+.add-language-box{
+    width: 1200px;
+    height: 80px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.location-selection-cont>div>.multiSelectContainer{
+    margin-top: 15px;
+}
+.add-category-img{
+    position: relative;
+    right: 106px;
+    top: 40px;
+}
+.add-membership-validity{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
 /* cursor: 'pointer', width: "90px", height: "90px", borderRadius: "5px"  */
+
+

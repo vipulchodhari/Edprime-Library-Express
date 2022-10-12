@@ -67,7 +67,7 @@ export const BookList = () => {
                 <Link to='/category/addcategory' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Add Book</button>
                 </Link>
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/book-list/book-imports' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Book Import</button>
                 </Link>
                 <Link to='/category/addcategory' style={{marginRight:'5px'}}>

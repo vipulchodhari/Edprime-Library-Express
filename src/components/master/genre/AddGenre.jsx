@@ -54,7 +54,7 @@ export const AddGenre = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Add Class</h3>
+                <h3>Add Genre</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
                     <button className="author-addbtn" onClick={()=> navigate('/genre')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
@@ -63,11 +63,13 @@ export const AddGenre = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Publisher Name' /><br />
+                    <label >Genre Name</label><br />
+                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Genre Name' /><br />
                     <label>Description</label><br />
                     <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>
+                <div>
+                <label className="add-category-img">Genre Image </label>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>
                         <img src={customerBorder} alt="upload pic" />
@@ -80,6 +82,7 @@ export const AddGenre = () => {
                         type='file'
                         onChange={handleUpload}
                     />
+                </div>
                 </div>
             </div>
         </div>

@@ -20,6 +20,7 @@ export const BookHealth = () => {
                             <th style={{ textAlign: 'left' }} className='library-setting-th-td'>Busness Rules with respect to the roles in system</th>
                             <th style={{ padding: '0px 30px' }}>Teacher</th>
                             <th style={{ padding: '0px 30px' }}>Student</th>
+                            
                         </tr>
                         <tr>
                             <td>Enable bad health Charges imposition at the time of return</td>

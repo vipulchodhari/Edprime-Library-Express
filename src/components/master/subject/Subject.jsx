@@ -75,7 +75,7 @@ export const Subject = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Language Master</h3>
+                <h3>Subject Master</h3>
                 <Link to='/subject/addsubject'>
                     <button className="author-addbtn">ADD SUBJECT</button>
                 </Link>

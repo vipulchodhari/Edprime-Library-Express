@@ -70,9 +70,9 @@ export const Category = () => {
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Author Master</h3>
+                <h3>Category List</h3>
                 <Link to='/category/addcategory'>
-                    <button className="author-addbtn">ADD AUTHOR</button>
+                    <button className="author-addbtn">Add Category</button>
                 </Link>
             </div>
             <hr />
