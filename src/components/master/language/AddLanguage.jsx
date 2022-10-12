@@ -4,12 +4,12 @@ import customerBorder from '../../../assets/upload.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { languageUrl} from '../../../utils/common';
 
 export const AddLanguage = () => {
     const [text, setText] = useState({
         title: "",
-        author_image: ""
+        // author_image: ""
     })
 
     const navigate = useNavigate();
@@ -29,15 +29,15 @@ export const AddLanguage = () => {
 
     const handleSubmit = async () => {
         try {
-            axios.post(`${authorUrl}`, {
-                title: text.title,
-                author_image: text.author_image
+            axios.post(`${languageUrl}`, {
+                title: text.title
+                // author_image: text.author_image
             })
                 .then((res) => {
                     console.log("post data", res)
 
-                    if (res.status === 201) {
-                        alert('Autor created successfully')
+                    if (res.status === 200) {
+                        alert('Language created successfully')
                         navigate('/language')
                     }
                 })
@@ -50,7 +50,7 @@ export const AddLanguage = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Language Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
@@ -66,10 +66,10 @@ export const AddLanguage = () => {
                     <label >Langauge Name</label><br />
                     <div>
                     
-                    <input onChange={handleChange} className="publisher-box add-language-box" name='author_image' type='text' />
+                    <input onChange={handleChange} className="publisher-box add-language-box" name='title' type='text' />
                     </div>
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box language-description" type='text' />
+                    <textarea onChange={handleChange} name='' className="publisher-box language-description" type='text' />
                 </div>
             </div>
         </div>

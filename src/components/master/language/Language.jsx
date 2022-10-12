@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { authorUrl } from "../../../utils/common";
+import {  languageUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
 export const Language = () => {
@@ -18,15 +18,23 @@ export const Language = () => {
 
     const navigate = useNavigate();
 
+    // const getData = async () => {
+    //     await axios.get(`${authorUrl}?page=${activePage}`)
+    //         .then((res) => {
+    //             setAuthorData(res.data.data)
+    //             setItemCount(res?.data?.authorCount)
+    //             // console.log(res.data)
+    //         })
+    // }
     const getData = async () => {
-        await axios.get(`${authorUrl}?page=${activePage}`)
+        await axios.get(`${languageUrl}`)
             .then((res) => {
-                setAuthorData(res.data.data)
+                setAuthorData(res.data)
                 setItemCount(res?.data?.authorCount)
-                // console.log(res.data)
+                // console.log(res)
             })
     }
-    // console.log("data", authorData);
+    console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
         el?.title?.toLowerCase().includes(query) ||
@@ -42,19 +50,15 @@ export const Language = () => {
     const handleDelete = async (id) => {
         console.log("id", id);
         try {
-            await axios.delete(`${authorUrl}/${id}`)
+            await axios.delete(`${languageUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
+                    if(res.status === 200) alert("Author Deleted")
                 })
-            alert("Author Deleted")
-            getData()
+            getData() 
         } catch (err) {
             console.log("error", err);
         }
-    }
-
-    const handleEdit = () => {
-        navigate('/language/editlanguage')
     }
 
     const handlePageChange = (pageNumber) => {
@@ -70,13 +74,13 @@ export const Language = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Language Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Language Master</h3>
                 <Link to='/language/addlanguage'>
-                    <button className="author-addbtn">ADD LANGUAGE</button>
+                    <button className="author-addbtn">ADD Language</button>
                 </Link>
             </div>
             <hr />
@@ -94,7 +98,7 @@ export const Language = () => {
                         <TableRow>
                             <TableCell className="book-item-thead">S.No </TableCell>
                             <TableCell align="center" className="book-item-thead">
-                                Author Name
+                              Language Name
                             </TableCell>
                             <TableCell align="center" className="book-item-thead">
                                 Creation Date
@@ -133,10 +137,10 @@ export const Language = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                <Link to={`/language/editlanguage/${author._id}`} className='link-decoration'> 
+                                    <Link to={`/language/editlanguage/${author._id}`} className='link-decoration'> 
                                         <EditIcon className="author-action-icons"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>     
-                                    <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>
+                                    <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>    
                                 </TableCell>
                             </TableRow>
                         )) : <tr><td className="no-data">No Data Found</td></tr>}

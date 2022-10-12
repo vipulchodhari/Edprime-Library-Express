@@ -36,7 +36,7 @@ export const AddAuthor = () => {
               .then((res) => {
                 console.log("post data", res)
 
-                if(res.status === 201){
+                if(res.status === 200){
                     alert('Autor created successfully')
                     navigate('/author')
                 }

@@ -50,7 +50,7 @@ export const AddPublisher = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Publisher Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
@@ -64,7 +64,7 @@ export const AddPublisher = () => {
             <div className="add-author-container add-publisher-container">
                 <div>
 
-                    <label >Author Name</label><br />
+                    <label >Publisher Name</label><br />
                     <input onChange={handleChange} name='title' className="publisher-box add-publisher-input" type='text' placeholder='Publisher Name...' /><br />
                     <label> Publisher Address</label><br />
                     <textarea onChange={handleChange} name='author_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />

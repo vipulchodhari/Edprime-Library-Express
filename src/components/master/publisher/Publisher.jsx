@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { authorUrl } from "../../../utils/common";
+import {publisherUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
-export const Publisher= () => {
+export const Publisher = () => {
     let [authorData, setAuthorData] = useState();
     const [query, setQuery] = useState("");
     const [activePage, setActivePage] = useState(1);
@@ -18,15 +18,23 @@ export const Publisher= () => {
 
     const navigate = useNavigate();
 
+    // const getData = async () => {
+    //     await axios.get(`${authorUrl}?page=${activePage}`)
+    //         .then((res) => {
+    //             setAuthorData(res.data.data)
+    //             setItemCount(res?.data?.authorCount)
+    //             // console.log(res.data)
+    //         })
+    // }
     const getData = async () => {
-        await axios.get(`${authorUrl}?page=${activePage}`)
+        await axios.get(`${publisherUrl}`)
             .then((res) => {
-                setAuthorData(res.data.data)
+                setAuthorData(res.data)
                 setItemCount(res?.data?.authorCount)
-                // console.log(res.data)
+                // console.log(res)
             })
     }
-    // console.log("data", authorData);
+    console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
         el?.title?.toLowerCase().includes(query) ||
@@ -42,7 +50,7 @@ export const Publisher= () => {
     const handleDelete = async (id) => {
         console.log("id", id);
         try {
-            await axios.delete(`${authorUrl}/${id}`)
+            await axios.delete(`${publisherUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
                     if(res.status === 200) alert("Author Deleted")
@@ -66,7 +74,7 @@ export const Publisher= () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Publisher Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
@@ -90,8 +98,7 @@ export const Publisher= () => {
                         <TableRow>
                             <TableCell className="book-item-thead">S.No </TableCell>
                             <TableCell align="center" className="book-item-thead">
-                                Author Name
-                            
+                                Publisher Name
                             </TableCell>
                             <TableCell align="center" className="book-item-thead">
                                 Creation Date

@@ -57,7 +57,7 @@ export const AddMembership = () => {
                 <h3>Membership Plan</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={() => navigate('/member')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={() => navigate('/membership')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />

@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import {  locationUrl  } from '../../../utils/common';
 import Multiselect from 'multiselect-react-dropdown';
 
 export const AddLocation = () => {
@@ -12,6 +12,9 @@ export const AddLocation = () => {
     const [selection, setSelection] = useState([])
     const [text, setText] = useState({
         title: "",
+        floor: "",
+        selection: "",
+        rack: "",
         author_image: ""
     })
 
@@ -32,15 +35,18 @@ export const AddLocation = () => {
 
     const handleSubmit = async () => {
         try {
-            axios.post(`${authorUrl}`, {
+            axios.post(`${ locationUrl }`, {
                 title: text.title,
-                author_image: text.author_image
+                floor : text.title,
+                rack : text.rack,
+                selection :text.selection
+                // author_image: text.author_image
             })
                 .then((res) => {
                     console.log("post data", res)
 
-                    if (res.status === 201) {
-                        alert('Autor created successfully')
+                    if (res.status === 200) {
+                        alert('Location created successfully')
                         navigate('/location')
                     }
                 })
@@ -57,7 +63,7 @@ export const AddLocation = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Location Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
@@ -77,13 +83,13 @@ export const AddLocation = () => {
                         </div>
                         <div>
                             <label >Floor</label><br />
-                            <input onChange={handleChange} name='title' className="publisher-box add-publisher-input" type='text' placeholder='' />
+                            <input onChange={handleChange} name='floor' className="publisher-box add-publisher-input" type='text' placeholder='' />
                         </div>
                     </div>
                     <label>Rack</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
+                    <textarea onChange={handleChange} name='rack' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                     <label>Description</label><br />
-                    <textarea rea onChange={handleChange} name='author_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
+                    <textarea rea onChange={handleChange} name='selection' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                 </div>
                 <div className='location-selection-cont'>
                     <label>Selection</label>

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { authorUrl } from "../../../utils/common";
+import {categoryUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
 export const Category = () => {
@@ -18,15 +18,23 @@ export const Category = () => {
 
     const navigate = useNavigate();
 
+    // const getData = async () => {
+    //     await axios.get(`${authorUrl}?page=${activePage}`)
+    //         .then((res) => {
+    //             setAuthorData(res.data.data)
+    //             setItemCount(res?.data?.authorCount)
+    //             // console.log(res.data)
+    //         })
+    // }
     const getData = async () => {
-        await axios.get(`${authorUrl}?page=${activePage}`)
+        await axios.get(`${categoryUrl }`)
             .then((res) => {
-                setAuthorData(res.data.data)
+                setAuthorData(res.data)
                 setItemCount(res?.data?.authorCount)
-                // console.log(res.data)
+                // console.log(res)
             })
     }
-    // console.log("data", authorData);
+    console.log("data", authorData);
 
     authorData = authorData?.filter((el) =>
         el?.title?.toLowerCase().includes(query) ||
@@ -42,7 +50,7 @@ export const Category = () => {
     const handleDelete = async (id) => {
         console.log("id", id);
         try {
-            await axios.delete(`${authorUrl}/${id}`)
+            await axios.delete(`${categoryUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
                     if(res.status === 200) alert("Author Deleted")
@@ -66,13 +74,13 @@ export const Category = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Category Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Category List</h3>
+                <h3>Category Master</h3>
                 <Link to='/category/addcategory'>
-                    <button className="author-addbtn">Add Category</button>
+                    <button className="author-addbtn">ADD CATEGORY</button>
                 </Link>
             </div>
             <hr />
@@ -90,7 +98,7 @@ export const Category = () => {
                         <TableRow>
                             <TableCell className="book-item-thead">S.No </TableCell>
                             <TableCell align="center" className="book-item-thead">
-                                Author Name
+                                Category Name
                             </TableCell>
                             <TableCell align="center" className="book-item-thead">
                                 Creation Date

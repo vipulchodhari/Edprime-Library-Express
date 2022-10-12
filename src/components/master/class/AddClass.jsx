@@ -4,12 +4,12 @@ import customerBorder from '../../../assets/upload.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import {  classUrl } from '../../../utils/common';
 
 export const AddClass = () => {
     const [text, setText] = useState({
         title: "",
-        author_image: ""
+        // category_image: ""
     })
 
     const navigate = useNavigate();
@@ -29,15 +29,16 @@ export const AddClass = () => {
 
     const handleSubmit = async() => {
         try{
-            axios.post(`${authorUrl}`,{
+            axios.post(`${ classUrl}`,{
                 title: text.title,
-                author_image: text.author_image
+                // author_image: text.author_image
+                // category_image : text.category_image
             })
               .then((res) => {
                 console.log("post data", res)
 
-                if(res.status === 201){
-                    alert('Autor created successfully')
+                if(res.status === 200){
+                    alert('Class created successfully')
                     navigate('/class')
                 }
             })
@@ -50,23 +51,23 @@ export const AddClass = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Class Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
                 <h3>Add Class</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={()=> navigate('/class')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={()=> navigate('/category')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />
             <div className="add-author-container">
                 <div>
                     <label >Class Name</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Class Name' /><br />
+                    <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Category Name' /><br />
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea onChange={handleChange} name='category_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div>
                 <label className="add-category-img">Class Image </label>

@@ -4,12 +4,12 @@ import customerBorder from '../../../assets/upload.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { categoryUrl } from '../../../utils/common';
 
 export const AddCategory = () => {
     const [text, setText] = useState({
         title: "",
-        author_image: ""
+        category_image: ""
     })
 
     const navigate = useNavigate();
@@ -29,15 +29,16 @@ export const AddCategory = () => {
 
     const handleSubmit = async() => {
         try{
-            axios.post(`${authorUrl}`,{
+            axios.post(`${categoryUrl}`,{
                 title: text.title,
-                author_image: text.author_image
+                // author_image: text.author_image
+                category_image : text.category_image
             })
               .then((res) => {
                 console.log("post data", res)
 
-                if(res.status === 201){
-                    alert('Autor created successfully')
+                if(res.status === 200){
+                    alert('Category created successfully')
                     navigate('/category')
                 }
             })
@@ -50,7 +51,7 @@ export const AddCategory = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Category Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
@@ -66,7 +67,7 @@ export const AddCategory = () => {
                     <label >Category Name</label><br />
                     <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Category Name' /><br />
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea onChange={handleChange} name='category_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div>
                 <label className="add-category-img">Category Image </label>

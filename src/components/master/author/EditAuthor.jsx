@@ -76,7 +76,7 @@ export const EditAuthor = () => {
                         onChange={handleChange} 
                         name='title'  
                         type='text'
-                        placeholder='Publisher Name' /><br />
+                        placeholder='Author Name' /><br />
                     <label>Description</label><br />
                     <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>
