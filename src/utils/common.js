@@ -1,7 +1,7 @@
 // export const authorUrl = 'http://192.100.100.111:5001/authors';
 export const booksUrl = `http://192.100.100.111:5001/books`;
 // export const authorUrl = "http://192.100.100.54:5000/author";
-// export const booksUrl = `http://192.100.100.54:1100/books`;
+export const booksItemsUrl = `http://192.100.100.111:5001/book-items`;
 export const categoryUrl = 'http://192.100.100.111:5001/book-categories';
 export const authorUrl = 'http://192.100.100.111:5001/authors';
 export const publisherUrl = 'http://192.100.100.111:5001/publishers';
