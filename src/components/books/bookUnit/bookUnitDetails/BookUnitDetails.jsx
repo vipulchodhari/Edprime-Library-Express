@@ -25,11 +25,11 @@ export const BookUnitDetails = () => {
     const mydata = () => {
         axios.get(`${booksItemsUrl}/${BookKUnitId}`)
             .then((res) => {
-                setBookItemDetails(res.data)
+                setBookItemDetails(res.data.data)
                 setBook(res.data.book)
                 setBookCategory(res.data.bookCategory)
 
-                // console.log("get DAta", res)
+                console.log("get DAta", res)
             });
     }
     console.log("edit books params", bookItemDetails);

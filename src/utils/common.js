@@ -1,5 +1,5 @@
 // export const authorUrl = 'http://192.100.100.111:5001/authors';
-export const booksUrl = `http://192.100.100.111:5001/books`;
+export const booksUrl = `http://192.100.100.54:3000/books`;
 // export const authorUrl = "http://192.100.100.54:5000/author";
 export const booksItemsUrl = `http://192.100.100.111:5001/book-items`;
 export const categoryUrl = 'http://192.100.100.111:5001/book-categories';
@@ -9,3 +9,5 @@ export const genresUrl = `http://192.100.100.111:5001/genres`;
 export const languageUrl = 'http://192.100.100.111:5001/languages';
 export const classUrl = `http://192.100.100.111:5001/ed-classes`;
 export const subjectUrl = 'http://192.100.100.111:5001/subjects';
+export const userUrl = 'http://192.100.100.54:3000/students'
+export const bookIssueUrl = 'http://192.100.100.54:3000/booklendings'

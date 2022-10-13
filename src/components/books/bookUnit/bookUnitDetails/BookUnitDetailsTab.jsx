@@ -18,7 +18,7 @@ export const BookUnitDetailsTab = ({ bookItemDetails, book, bookCategory }) => {
                 <p>:</p>
             </div>
             <div>
-                <p>{book.book_title}</p>
+                <p>{book?.book_title}</p>
                 <p>Author Name</p>
                 <p>20</p>
             </div>
@@ -35,7 +35,7 @@ export const BookUnitDetailsTab = ({ bookItemDetails, book, bookCategory }) => {
                 <p>:</p>
             </div>
             <div>
-                <p>{bookCategory.title}</p>
+                <p>{bookCategory?.title}</p>
                 <p>{bookItemDetails?.book_health}</p>
                 <p>Current borrower</p>
             </div>

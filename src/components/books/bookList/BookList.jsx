@@ -16,8 +16,15 @@ export const BookList = () => {
     const getData = async () => {
         await axios.get(`${booksUrl}`)
             .then((res) => {
-                setBooksData(res.data)
-                // setItemCount(res?.data?.authorCount)
+                let newArr =[] 
+                res.data.data1.forEach((item,index)=>{
+                   item.totalBooks = res.data.TotalBook[index]
+                   item.availableBooks = res.data.TotalAvailableBook[index]
+                   item.issueBooks = res.data.TotalIssuesBook[index]
+                   item.scrappedBooks = res.data.TotalScrapbook[index]
+                   newArr.push(item)
+                })
+                setBooksData(newArr)
                 // console.log(res.data)
             })
     }
@@ -121,24 +128,24 @@ export const BookList = () => {
                                     {i + 1}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>Book</strong>
+                                    <strong>{book?.bookCategory?.title}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                 <Link to={`/book-details/${book?._id}`} className='link-decoration'>
-                                    <strong>{book.book_title}</strong>
+                                    <strong>{book?.book_title}</strong>
                                 </Link>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>Jk. Scott</strong>
+                                    <strong>{book?.publisher?.title}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>27</strong>
+                                    <strong>{book.totalBooks}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>8</strong>
+                                    <strong>{book.issueBooks}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>19</strong>
+                                    <strong>{book.availableBooks}</strong>
                                 </TableCell>
                                 <TableCell align="center">
                                     <div className={
@@ -148,9 +155,9 @@ export const BookList = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <Link to={`/category/editcategory/${book._id}`} className='link-decoration'> 
+                                    {/* <Link to={`/category/editcategory/${book._id}`} className='link-decoration'>  */}
                                         <EditIcon className="author-action-icons"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </Link>     
+                                    {/* </Link>      */}
                                     <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(book._id)}/>
                                     <label className="bookswitch">
                                         <input type="checkbox" />

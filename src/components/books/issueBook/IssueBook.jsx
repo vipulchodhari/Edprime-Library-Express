@@ -5,15 +5,21 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { authorUrl } from '../../../utils/common';
+import { SelectMember } from './SelectMember';
+import { SelectBook } from './SelectBook';
 
 export const IssueBook = () => {
     const [text, setText] = useState({
         title: "",
         author_image: ""
     })
+    const [member, setMember] = useState()
+    const receiveMember = (memerId) => {
+        setMember(memerId)
+    }
+    console.log('receive member id',  member);
 
     const navigate = useNavigate();
-
     const handleUpload = () => {
 
     }
@@ -46,6 +52,8 @@ export const IssueBook = () => {
         }
     }
 
+    
+
     return <div className="author-container">
         <h3 className='author-heading'>Issue a Book</h3>
         <div className='author-top'>
@@ -62,11 +70,13 @@ export const IssueBook = () => {
             </div>
             <hr />
             <div className="issue-book-container">
-                <div>
+                <div className='add-membership-validity' style={{gap:'10px'}}>
                     <div>
-                        <label>Select Member</label>
+                        <SelectMember receiveMember={receiveMember}/>
                     </div>
-                    <div></div>
+                    <div>
+                        <SelectBook/>
+                    </div>
                 </div>
                 <div></div>
             </div>
