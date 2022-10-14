@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import {locationUrl } from '../../../utils/common';
 
 export const Editlocation = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ export const Editlocation = () => {
     console.log("editAuthorData", editAuthorData);
 
     const getData = () => {
-        axios.get(`${authorUrl}/${authorId}`)
+        axios.get(`${locationUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
             setEditAuthorData(res.data.data)
@@ -35,14 +35,14 @@ export const Editlocation = () => {
     }
 
     const handleSubmit = () => {
-        axios.put(`${authorUrl}/${authorId}`, {
+        axios.put(`${locationUrl}/${authorId}`, {
             title: editAuthorData?.title,
-            author_image: editAuthorData?.author_image
+            // author_image: editAuthorData?.author_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
-                alert('Author Update Successfully')
+            if(res.status === 204){
+                alert('Location Update Successfully')
 
                 navigate('/location')
             }
@@ -56,11 +56,11 @@ export const Editlocation = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Location Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Edit Author</h3>
+                <h3>Edit Location</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
                     <button className="author-addbtn" onClick={() => navigate('/location')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
@@ -69,14 +69,14 @@ export const Editlocation = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
+                    <label >Location Name</label><br />
                     <input 
                         className="publisher-box"
                         value={editAuthorData?.title ?? ''}
                         onChange={handleChange} 
                         name='title'  
                         type='text'
-                        placeholder='Publisher Name' /><br />
+                        placeholder='Location Name' /><br />
                     <label>Description</label><br />
                     <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>

@@ -53,7 +53,8 @@ export const Subject = () => {
             await axios.delete(`${ subjectUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
-                    if(res.status === 200) alert("Author Deleted")
+                    if(res.status === 204)
+                     alert("Author Deleted")
                 })
             getData() 
         } catch (err) {

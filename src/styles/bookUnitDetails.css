@@ -1,0 +1,14 @@
+.book-unit{
+    background-color: rgb(235, 238, 244);
+    margin-top: 20px;
+}
+.book-unit-tab{
+    display: flex;
+    width: 45%;
+}
+.book-unit-tab>button{
+    border: none;
+}
+.unit-tabs{
+    background-color: rgb(235, 238, 244);
+}

@@ -11,9 +11,9 @@ export const AddLocation = () => {
     const [selectionData, setSelectionData] = useState([])
     const [selection, setSelection] = useState([])
     const [text, setText] = useState({
-        title: "",
+        building: "",
         floor: "",
-        selection: "",
+        description: "",
         rack: "",
         author_image: ""
     })
@@ -36,10 +36,10 @@ export const AddLocation = () => {
     const handleSubmit = async () => {
         try {
             axios.post(`${ locationUrl }`, {
-                title: text.title,
-                floor : text.title,
+                building: text.building,
+                floor : text.floor,
                 rack : text.rack,
-                selection :text.selection
+                description:text.description
                 // author_image: text.author_image
             })
                 .then((res) => {
@@ -79,7 +79,7 @@ export const AddLocation = () => {
                     <div style={{ display: "grid", gridTemplateColumns: '49% 49%' }}>
                         <div>
                             <label >Building</label><br />
-                            <input onChange={handleChange} name='title' className="publisher-box add-publisher-input" type='text' placeholder='' />
+                            <input onChange={handleChange} name='building' className="publisher-box add-publisher-input" type='text' placeholder='' />
                         </div>
                         <div>
                             <label >Floor</label><br />
@@ -89,7 +89,7 @@ export const AddLocation = () => {
                     <label>Rack</label><br />
                     <textarea onChange={handleChange} name='rack' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                     <label>Description</label><br />
-                    <textarea rea onChange={handleChange} name='selection' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
+                    <textarea rea onChange={handleChange} name='description' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                 </div>
                 <div className='location-selection-cont'>
                     <label>Selection</label>

@@ -53,7 +53,8 @@ export const Language = () => {
             await axios.delete(`${languageUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
-                    if(res.status === 200) alert("Author Deleted")
+                    if(res.status === 204) 
+                    alert("Language Deleted")
                 })
             getData() 
         } catch (err) {
@@ -81,7 +82,7 @@ export const Language = () => {
                 <h3>Language Master</h3>
                 <Link to='/language/addlanguage'>
                     <button className="author-addbtn">ADD Language</button>
-                </Link>
+                </Link>23563
             </div>
             <hr />
             <input onChange={searchAuthor} className="author-search-box" type='text' placeholder='Search...' />

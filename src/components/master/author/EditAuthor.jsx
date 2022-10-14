@@ -41,7 +41,7 @@ export const EditAuthor = () => {
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
+            if(res.status === 204){
                 alert('Author Update Successfully')
 
                 navigate('/author')

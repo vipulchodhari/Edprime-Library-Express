@@ -4,6 +4,8 @@ import { AddBooks } from "./addBook/AddBooks"
 import { BookDetails } from "./bookDetails/BookDetails"
 import { BookImport } from "./bookImport/BookImport"
 import { BookList } from "./bookList/BookList"
+import { BookUnitDetails } from "./bookUnit/bookUnitDetails/BookUnitDetails"
+import { BookUnitList } from "./bookUnit/BookUnitList"
 import { IssueBook } from "./issueBook/IssueBook"
 
 export const Books = () => {
@@ -15,6 +17,8 @@ export const Books = () => {
             <Route path='/book-details/:id' element={<BookDetails/>}></Route>
             <Route path='/issue-book' element={<IssueBook/>}></Route>
             <Route path='/import-books' element={<BookImport/>}></Route>
+            <Route path='/book-units' element={<BookUnitList/>}></Route>
+            <Route path='/book-unit-details/:id' element={<BookUnitDetails/>}></Route>
         </Routes>
     </div>
 }

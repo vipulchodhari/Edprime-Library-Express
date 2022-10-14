@@ -53,7 +53,8 @@ export const Location= () => {
             await axios.delete(`${locationUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
-                    if(res.status === 200) alert("location Deleted")
+                    if(res.status === 204) 
+                    alert("location Deleted")
                 })
             getData() 
         } catch (err) {
@@ -98,7 +99,7 @@ export const Location= () => {
                         <TableRow>
                             <TableCell className="book-item-thead">S.No </TableCell>
                             <TableCell align="center" className="book-item-thead">
-                              Language Name
+                              Location Name
                             </TableCell>
                             <TableCell align="center" className="book-item-thead">
                                 Creation Date

@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import {classUrl } from '../../../utils/common';
 
 export const EditClass = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ export const EditClass = () => {
     console.log("editAuthorData", editAuthorData);
 
     const getData = () => {
-        axios.get(`${authorUrl}/${authorId}`)
+        axios.get(`${classUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
             setEditAuthorData(res.data.data)
@@ -35,14 +35,14 @@ export const EditClass = () => {
     }
 
     const handleSubmit = () => {
-        axios.put(`${authorUrl}/${authorId}`, {
+        axios.put(`${classUrl}/${authorId}`, {
             title: editAuthorData?.title,
-            author_image: editAuthorData?.author_image
+            // class_image: editAuthorData?.class_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
-                alert('Author Update Successfully')
+            if(res.status === 204){
+                alert('Class Update Successfully')
 
                 navigate('/class')
             }
@@ -56,11 +56,11 @@ export const EditClass = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master,Class Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Edit Author</h3>
+                <h3>Edit Class</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
                     <button className="author-addbtn" onClick={() => navigate('/class')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
@@ -69,7 +69,7 @@ export const EditClass = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
+                    <label >Class Name</label><br />
                     <input 
                         className="publisher-box"
                         value={editAuthorData?.title ?? ''}
@@ -78,7 +78,7 @@ export const EditClass = () => {
                         type='text'
                         placeholder='Publisher Name' /><br />
                     <label>Description</label><br />
-                    <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editAuthorData?.class_image ?? ''} onChange={handleChange} name='class_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>

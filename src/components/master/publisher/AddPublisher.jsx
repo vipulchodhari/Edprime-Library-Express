@@ -4,12 +4,14 @@ import customerBorder from '../../../assets/upload.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { publisherUrl } from '../../../utils/common';
 
 export const AddPublisher = () => {
     const [text, setText] = useState({
         title: "",
-        author_image: ""
+        publisher_image: ""
+       
+
     })
 
     const navigate = useNavigate();
@@ -29,15 +31,16 @@ export const AddPublisher = () => {
 
     const handleSubmit = async() => {
         try{
-            axios.post(`${authorUrl}`,{
+            axios.post(`${publisherUrl}`,{
+                // publisher_name: text.publisher_name,
                 title: text.title,
-                author_image: text.author_image
+                publisher_image: text.publisher_image
             })
               .then((res) => {
                 console.log("post data", res)
 
-                if(res.status === 201){
-                    alert('Autor created successfully')
+                if(res.status === 200){
+                    alert('Publisher created successfully')
                     navigate('/publisher')
                 }
             })
@@ -67,13 +70,13 @@ export const AddPublisher = () => {
                     <label >Publisher Name</label><br />
                     <input onChange={handleChange} name='title' className="publisher-box add-publisher-input" type='text' placeholder='Publisher Name...' /><br />
                     <label> Publisher Address</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
+                    <textarea onChange={handleChange} name='publisher_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                     <label>Description</label><br />
                     <textarea rea onChange={handleChange} name='author_image' className="publisher-box add-publisher-input publisher-description" type='text' /><br />
                 </div>
                 <div>
                     <label >Publisher Website</label><br />
-                    <input onChange={handleChange} name='title' className="publisher-box add-publisher-input" type='text' placeholder='Publisher Website...' /><br />
+                    <input onChange={handleChange} name='' className="publisher-box add-publisher-input" type='text' placeholder='Publisher Website...' /><br />
                     <label >Publisher Image</label><br />
                     <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont add-publisher-img-cont' >

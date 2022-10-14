@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { languageUrl } from '../../../utils/common';
 
 export const Editlanguage = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ export const Editlanguage = () => {
     console.log("editAuthorData", editAuthorData);
 
     const getData = () => {
-        axios.get(`${authorUrl}/${authorId}`)
+        axios.get(`${languageUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
             setEditAuthorData(res.data.data)
@@ -35,14 +35,14 @@ export const Editlanguage = () => {
     }
 
     const handleSubmit = () => {
-        axios.put(`${authorUrl}/${authorId}`, {
+        axios.put(`${languageUrl}/${authorId}`, {
             title: editAuthorData?.title,
-            author_image: editAuthorData?.author_image
+            // author_image: editAuthorData?.author_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
-                alert('Author Update Successfully')
+            if(res.status === 204){
+                alert('Language Update Successfully')
 
                 navigate('/language')
             }
@@ -56,11 +56,11 @@ export const Editlanguage = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Language Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Edit Author</h3>
+                <h3>Edit Language</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
                     <button className="author-addbtn" onClick={() => navigate('/language')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
@@ -69,14 +69,14 @@ export const Editlanguage = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
+                    <label >Language Name</label><br />
                     <input 
                         className="publisher-box"
                         value={editAuthorData?.title ?? ''}
                         onChange={handleChange} 
                         name='title'  
                         type='text'
-                        placeholder='Publisher Name' /><br />
+                        placeholder='Langauge Name' /><br />
                     <label>Description</label><br />
                     <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>

@@ -88,3 +88,52 @@
 .addbook-search-box::placeholder{
     color: rgb(117,117,117);
 }
+
+
+
+/* -----------------------------issue book------------------------ */
+
+.issue-member-scaner{
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 22px;
+    border-radius: 5px;
+    padding: 0px 12px;
+    background-color: rgb(54,153,255);
+    color: #fff;
+    cursor: pointer;
+}
+.issue-book-scaner{
+    gap: 37px;
+}
+.scaner-icon{
+    position: relative;
+    top: 5px;
+}
+.issue-member-cont{
+    display: grid;
+    grid-template-columns: 67% 30%;
+    gap: 8px;
+}
+.issue-member-details{
+    border: 1px solid lightgray;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.issue-member-heading{
+    display: flex;
+    background-color: rgb(54,153,255);
+    color: #fff;
+    gap: 25px;
+    padding: 0px 25px;
+    border-radius: 4px 4px 0px 0px;
+}
+.issue-member-icon{
+    position: relative;
+    top: 15px;
+}
+.issue-member-containt{
+    display: flex;
+    gap: 40px;
+    padding: 15px 30px;
+}

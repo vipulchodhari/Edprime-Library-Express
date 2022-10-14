@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { authorUrl } from "../../../utils/common";
+import {authorUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
 export const Author = () => {
@@ -27,7 +27,7 @@ export const Author = () => {
     //         })
     // }
     const getData = async () => {
-        await axios.get(`${authorUrl}`)
+        await axios.get(`${authorUrl }`)
             .then((res) => {
                 setAuthorData(res.data)
                 setItemCount(res?.data?.authorCount)
@@ -53,7 +53,8 @@ export const Author = () => {
             await axios.delete(`${authorUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
-                    if(res.status === 200) alert("Author Deleted")
+                    if(res.status === 204) 
+                    alert("Author Deleted")
                 })
             getData() 
         } catch (err) {
@@ -74,7 +75,7 @@ export const Author = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Auhtor Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">

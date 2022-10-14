@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { categoryUrl} from '../../../utils/common';
 
 export const EditCategory = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ export const EditCategory = () => {
     console.log("editAuthorData", editAuthorData);
 
     const getData = () => {
-        axios.get(`${authorUrl}/${authorId}`)
+        axios.get(`${categoryUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
             setEditAuthorData(res.data.data)
@@ -35,16 +35,16 @@ export const EditCategory = () => {
     }
 
     const handleSubmit = () => {
-        axios.put(`${authorUrl}/${authorId}`, {
+        axios.put(`${categoryUrl}/${authorId}`, {
             title: editAuthorData?.title,
-            author_image: editAuthorData?.author_image
+            category_image: editAuthorData?.category_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
-                alert('Author Update Successfully')
+            if(res.status === 204){
+                alert('Category Update Successfully')
 
-                navigate('/author')
+                navigate('/category')
             }
           })
     }
@@ -56,20 +56,20 @@ export const EditCategory = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Category Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Edit Author</h3>
+                <h3>Edit Category</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
-                    <button className="author-addbtn" onClick={() => navigate('/author')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
+                    <button className="author-addbtn" onClick={() => navigate('/category')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
                 </div>
             </div>
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
+                    <label >Category Name</label><br />
                     <input 
                         className="publisher-box"
                         value={editAuthorData?.title ?? ''}
@@ -78,7 +78,7 @@ export const EditCategory = () => {
                         type='text'
                         placeholder='Publisher Name' /><br />
                     <label>Description</label><br />
-                    <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editAuthorData?.category_image ?? ''} onChange={handleChange} name='category_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>

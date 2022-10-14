@@ -53,7 +53,8 @@ export const Genre = () => {
             await axios.delete(`${ genresUrl}/${id}`)
                 .then((res) => {
                     console.log("delete response", res)
-                    if(res.status === 200) alert("Author Deleted")
+                    if(res.status === 204) 
+                    alert("Author Deleted")
                 })
             getData() 
         } catch (err) {
@@ -137,7 +138,7 @@ export const Genre = () => {
                                     </div>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <Link to={`/publisher/editpublisher/${author._id}`} className='link-decoration'> 
+                                    <Link to={`/genre/editgenre/${author._id}`} className='link-decoration'> 
                                         <EditIcon className="author-action-icons"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </Link>     
                                     <DeleteIcon className="author-action-icons" onClick={()=> handleDelete(author._id)}/>    

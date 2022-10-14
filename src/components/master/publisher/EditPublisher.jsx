@@ -4,7 +4,7 @@ import customerBorder from '../../../assets/upload.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { authorUrl } from '../../../utils/common';
+import { publisherUrl } from '../../../utils/common';
 
 export const EditPublisher = () => {
     const params = useParams();
@@ -16,7 +16,7 @@ export const EditPublisher = () => {
     console.log("editAuthorData", editAuthorData);
 
     const getData = () => {
-        axios.get(`${authorUrl}/${authorId}`)
+        axios.get(`${publisherUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
             setEditAuthorData(res.data.data)
@@ -35,14 +35,15 @@ export const EditPublisher = () => {
     }
 
     const handleSubmit = () => {
-        axios.put(`${authorUrl}/${authorId}`, {
+        axios.put(`${publisherUrl}/${authorId}`, {
             title: editAuthorData?.title,
-            author_image: editAuthorData?.author_image
+            // created_by: editAuthorData?.created_by,
+            publisher_image: editAuthorData?.publisher_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 200){
-                alert('Author Update Successfully')
+            if(res.status === 204){
+                alert('Publisher Update Successfully')
 
                 navigate('/publisher')
             }
@@ -56,11 +57,11 @@ export const EditPublisher = () => {
         <h3 className='author-heading'>Set Up</h3>
         <div className='author-top'>
             <img src={homeIcon} alt='' />
-            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Author Master</p>
+            <p style={{ fontSize: '12px', color: '#777777' }}>Library, Set Up, Master, Publisher Master</p>
         </div>
         <div className="author-cont">
             <div className="author-btnFlex">
-                <h3>Edit Author</h3>
+                <h3>Edit Publisher</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>Submit</button>
                     <button className="author-addbtn" onClick={() => navigate('/publisher')} style={{ backgroundColor: 'rgb(246,78,96)' }}>Cancel</button>
@@ -69,7 +70,7 @@ export const EditPublisher = () => {
             <hr />
             <div className="add-author-container">
                 <div>
-                    <label >Author Name</label><br />
+                    <label >Publisher Name</label><br />
                     <input 
                         className="publisher-box"
                         value={editAuthorData?.title ?? ''}
@@ -78,7 +79,8 @@ export const EditPublisher = () => {
                         type='text'
                         placeholder='Publisher Name' /><br />
                     <label>Description</label><br />
-                    <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editAuthorData?.publisher_image ?? ''} onChange={handleChange} name='publisher_image' className="publisher-box publisher-description" type='text' />
+                   
                 </div>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>
