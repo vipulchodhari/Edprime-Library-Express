@@ -9,14 +9,26 @@ import { authorUrl } from '../../../utils/common';
 export const AddAuthor = () => {
     const [text, setText] = useState({
         title: "",
-        author_image: ""
+        author_image: "",
+        show_img: "",
+        authorDiscription: ""
     })
 
     const navigate = useNavigate();
 
-    const handleUpload = () => {
+    const handleUpload = (e) => {
+        let files = e.target.files;
+        // setFile(URL.createObjectURL(e.target.files[0]));
+        console.log("image", files[0])
 
+        setText({
+            ...text,
+            show_img: URL.createObjectURL(files[0]),
+            author_image: files[0]
+        })
     }
+    console.log("author image", text.author_image);
+    // console.log("show_img ", text.show_img);
 
     const handleChange = (e) => {
         const { name } = e.target;
@@ -28,10 +40,19 @@ export const AddAuthor = () => {
     }
 
     const handleSubmit = async() => {
+        const formData = new FormData()
+        formData.append("file", text.author_image)
         try{
+            const res = await axios({
+                method: "post",
+                url: 'http://192.100.100.54:3000/files',
+                data: formData
+            })
+            console.log("response", res);
             axios.post(`${authorUrl}`,{
-                title: text.title,
-                author_image: text.author_image
+                authorTitle: text.title,
+                authorImage: res.data,
+                authorDiscription: text.authorDiscription
             })
               .then((res) => {
                 console.log("post data", res)
@@ -66,14 +87,15 @@ export const AddAuthor = () => {
                     <label >Author Name</label><br />
                     <input onChange={handleChange} name='title' className="publisher-box" type='text' placeholder='Author Name' /><br />
                     <label>Description</label><br />
-                    <textarea onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea onChange={handleChange} name='authorDiscription' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div>
                 <label className="add-category-img">Author Image </label>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>
-                        <img src={customerBorder} alt="upload pic" />
-                        {/* <p style={{ marginTop: '0px', color: 'gray' }}><strong>dummy image</strong></p> */}
+                        <img src={text.author_image? text.show_img : customerBorder} alt="upload pic" />
+                        {/* <img src={text.show_img} alt="upload pic" /> */}
+                        <p style={{ marginTop: '0px', color: 'gray' }}><strong>{text?.author_image?.name}</strong></p>
                     </label>
                     <input
                         style={{ display: 'none', cursor: 'pointer' }}

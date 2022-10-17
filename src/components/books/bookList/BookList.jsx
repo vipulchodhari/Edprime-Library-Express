@@ -25,7 +25,7 @@ export const BookList = () => {
                    newArr.push(item)
                 })
                 setBooksData(newArr)
-                // console.log(res.data)
+                console.log(res.data)
             })
     }
     console.log("data", booksData);

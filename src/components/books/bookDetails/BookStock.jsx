@@ -1,4 +1,4 @@
-export const BookStock = ({ totalAquired, availableBooks, issuedBooks, reservations}) => {
+export const BookStock = ({ totalAquired, availableBooks, issuedBooks, reservations, scrappedBooks}) => {
     return <div>
         <div className="book-stock-tab">
             <div className="book-details-grid">
@@ -39,7 +39,7 @@ export const BookStock = ({ totalAquired, availableBooks, issuedBooks, reservati
                     <p>:</p>
                 </div>
                 <div>
-                    <p>Publisher Name</p>
+                    <p>{scrappedBooks}</p>
                     <p>*****</p>
                 </div>
             </div>

@@ -12,14 +12,14 @@ export const EditSubject = () => {
     const authorId  = params.id;
     console.log("params", authorId);
 
-    const [editAuthorData, setEditAuthorData] = useState();
-    console.log("editAuthorData", editAuthorData);
+    const [editSubjectData, setEditSubjectData] = useState();
+    console.log("editSubjectData", editSubjectData);
 
     const getData = () => {
         axios.get(`${subjectUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
-            setEditAuthorData(res.data.data)
+            setEditSubjectData(res.data)
         })
     }
     const handleUpload = () => {
@@ -28,16 +28,16 @@ export const EditSubject = () => {
 
     const handleChange = (e) => {
         const { name } = e.target;
-        setEditAuthorData({
-            ...editAuthorData,
+        setEditSubjectData({
+            ...editSubjectData,
             [name]: e.target.value
         })
     }
 
     const handleSubmit = () => {
         axios.put(`${subjectUrl}/${authorId}`, {
-            title: editAuthorData?.title,
-            // author_image: editAuthorData?.author_image
+            title: editSubjectData?.title,
+            // author_image: editSubjectData?.author_image
         })
           .then((res) => {
             console.log("edit data", res)
@@ -72,13 +72,13 @@ export const EditSubject = () => {
                     <label >Subject Name</label><br />
                     <input 
                         className="publisher-box"
-                        value={editAuthorData?.title ?? ''}
+                        value={editSubjectData?.title ?? ''}
                         onChange={handleChange} 
                         name='title'  
                         type='text'
                         placeholder='Subject Name' /><br />
                     <label>Description</label><br />
-                    <textarea value={editAuthorData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editSubjectData?.author_image ?? ''} onChange={handleChange} name='author_image' className="publisher-box publisher-description" type='text' />
                 </div>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>
