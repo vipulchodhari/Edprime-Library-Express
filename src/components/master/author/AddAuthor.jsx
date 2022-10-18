@@ -95,7 +95,7 @@ export const AddAuthor = () => {
                     <label htmlFor="file-input" className='add-author-img-cont'>
                         <img src={text.author_image? text.show_img : customerBorder} alt="upload pic" />
                         {/* <img src={text.show_img} alt="upload pic" /> */}
-                        <p style={{ marginTop: '0px', color: 'gray' }}><strong>{text?.author_image?.name}</strong></p>
+                        <p style={{ marginTop: '-5px', color: 'gray' }}><strong>{text?.author_image?.name}</strong></p>
                     </label>
                     <input
                         style={{ display: 'none', cursor: 'pointer' }}

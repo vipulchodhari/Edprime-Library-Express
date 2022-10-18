@@ -77,7 +77,7 @@ export const BookList = () => {
                 <Link to='/import-books' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Book Import</button>
                 </Link>
-                <Link to='/category/addcategory' style={{marginRight:'5px'}}>
+                <Link to='/issue-book' style={{marginRight:'5px'}}>
                     <button className="author-addbtn">Issue Book</button>
                 </Link>
                 <Link to='/category/addcategory' style={{marginRight:'5px'}}>
@@ -128,7 +128,7 @@ export const BookList = () => {
                                     {i + 1}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{book?.bookCategory?.title}</strong>
+                                    <strong>{book?.bookCategory?.cotegoryTitle}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                 <Link to={`/book-details/${book?._id}`} className='link-decoration'>
@@ -136,7 +136,7 @@ export const BookList = () => {
                                 </Link>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{book?.publisher?.title}</strong>
+                                    <strong>{book?.publisher?.publisherTitle}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>{book.totalBooks}</strong>
