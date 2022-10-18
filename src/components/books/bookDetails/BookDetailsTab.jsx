@@ -57,7 +57,7 @@ export const BookDetailsTab = ({ bookDetails}) => {
                         <p>:</p>
                     </div>
                     <div>
-                        <p>{bookDetails?.bookCategory?.title}</p>
+                        <p>{bookDetails?.bookCategory?.cotegoryTitle}</p>
                         {/* <div style={{display:'flex'}}>
                         {bookDetails?.genres?.map((el) => {
                             return <p style={{marginTop:'1px'}}>{el.title}, &nbsp;</p>
@@ -87,7 +87,7 @@ export const BookDetailsTab = ({ bookDetails}) => {
                         <p>:</p>
                     </div>
                     <div>
-                        <p>{bookDetails?.publisher?.title}</p>
+                        <p>{bookDetails?.publisher?.publisherTitle}</p>
                         <p>English</p>
                         <p>{bookDetails?.isbn}</p>
                         <p>English</p>
