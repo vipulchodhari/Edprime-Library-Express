@@ -50,6 +50,9 @@ export const Navbar = () => {
     const handleClickBook = () => {
         setOpenB(!openB)
     }
+    const handleClickMembership = () => {
+        setOpenB(!openB)
+    }
     const handleNavigate = (el) => {
         // console.log("receive end point", el)
         if (el === "Category List") {
@@ -199,16 +202,57 @@ export const Navbar = () => {
                             </Link>
                         </Collapse>
                     </div>
-                    <Link to="/member" className='link-decoration'>
+                    <ListItem disablePadding>
+                        <ListItemButton onClick={handleClickMembership}>
+                            <ListItemIcon>
+                                <MenuBookIcon className='navbar-icon d-icon2' />
+                            </ListItemIcon>
+                            <ListItemText className='navbar-icon-text' primary='Member' />
+                        </ListItemButton>
+                    </ListItem>
+
+                    <div className='book-dropdown-cont'>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit><hr />
                         <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <PersonIcon className='navbar-icon d-icon3' />
-                                </ListItemIcon>
-                                <ListItemText className='navbar-icon-text' primary='Member' />
-                            </ListItemButton>
+                            <Link to='/activemember' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Active Member' />
+                                </List>
+                            </Link>
                         </ListItem>
-                    </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/addmember' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Add Member' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/memberlist' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Member List' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/expiredmembership' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Expired Membership' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                            <Link to='/addstudent' className='link-decoration'>
+                                <List component="div" disablePadding>
+                                    <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Add Student' />
+                                </List>
+                            </Link>
+                        </Collapse>
+                        
+                        </div>
+
+                       
                     <ListItem disablePadding>
                         <ListItemButton onClick={handleClick}>
                             <ListItemIcon>

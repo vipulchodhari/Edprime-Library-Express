@@ -1,0 +1,265 @@
+.bookswitch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 14px;
+}
+
+.bookswitch>input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.bookslider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.bookslider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 2px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .1s;
+    transition: .3s;
+}
+
+.bookswitch>input:checked+.bookslider {
+    background-color: #2196F3;
+}
+
+.bookswitch>input:focus+.bookslider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+.bookswitch>input:checked+.bookslider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.bookslider.bookround {
+    border-radius: 34px;
+    margin-top: -5px;
+    margin-left: 15px;
+    margin-right: -16px;
+}
+
+.bookslider.bookround:before {
+    border-radius: 50%;
+}
+
+
+/* -----------add book---------------- */
+
+.add-book-container{
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    gap: 30px;
+}
+.add-book-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
+}
+.add-book-grid > div > div > div{
+    width: 95%;
+}
+.add-book-img-cont{
+    margin-left: 0px;
+}
+.addbook-search-box{
+    width: 95%;
+    border: 1px solid rgb(204,204,204);
+}
+.addbook-search-box::placeholder{
+    color: rgb(117,117,117);
+}
+
+
+
+/* -----------------------------issue book------------------------ */
+
+.issue-member-scaner{
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 22px;
+    border-radius: 5px;
+    padding: 0px 12px;
+    background-color: rgb(54,153,255);
+    color: #fff;
+    cursor: pointer;
+}
+.issue-book-scaner{
+    gap: 37px;
+}
+.scaner-icon{
+    position: relative;
+    top: 5px;
+}
+.issue-member-cont{
+    display: grid;
+    grid-template-columns: 67% 30%;
+    gap: 8px;
+}
+.issue-member-details{
+    border: 1px solid lightgray;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.issue-member-heading{
+    display: flex;
+    background-color: rgb(54,153,255);
+    color: #fff;
+    gap: 25px;
+    padding: 0px 25px;
+    border-radius: 4px 4px 0px 0px;
+}
+.issue-member-icon{
+    position: relative;
+    top: 15px;
+}
+.issue-member-containt{
+    display: flex;
+    gap: 40px;
+    padding: 15px 30px;
+}
+
+
+ 
+/* -----------------------------Add Member------------------------ */
+.add-author-container{
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+.add-publisher-container{
+    grid-template-columns: 47% 47%;
+}
+.author-addbtn-color{
+    height: 40px;
+    margin-top: 10px;
+    padding: 0px 50px;
+    background-color: #da1a1a;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px;
+    cursor: pointer;
+}
+.author-btnFlex{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 12px;
+    margin-bottom: -18px;
+}
+.author-action-icons{
+    color: #3699FF;
+    background-color: rgb(233, 239, 239);
+    cursor: pointer;
+}
+.display-flex{
+    display: flex;
+    padding :0px 12px;
+    gap: 12px;
+}
+.publisher-box{
+    padding: 10px;
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #9EA5B9;
+    outline: none;
+}
+.add-memeber-box{
+    width: 97%;
+}
+.add-publisher-input{
+    width: 95%;
+}
+.publisher-description{
+    height: 100px;
+}
+.language-description{
+    height: 100px;
+    width: 100%;
+}
+.membership-description{
+    height: 100px;
+    width: 95%;
+}
+/* .publisher-add-box{
+    padding: 2px;
+    width: 40%;
+    height: 70px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #9EA5B9;
+}
+.langauge-add-box{
+    /* padding: 2px;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #9EA5B9;
+} */
+.add-author-img-cont{
+    padding: 30px;
+    height: 140px;
+    margin-top: 60px;
+    margin-left: -110px;
+    border-radius: 10px;
+    background-color: rgb(240,243,246);
+}
+.add-publisher-img-cont{
+    margin-top: 15px;
+    margin-left: 0px;
+}
+.add-author-img-cont > img{
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
+}
+.addlanguage-name{
+    width: 1200px;
+    height: 40px;
+    margin-top: 12px;
+    border-radius: 5px;
+
+}
+.add-language-box{
+    width: 100%;
+}
+.location-selection-cont>div>.multiSelectContainer{
+    margin-top: 15px;
+}
+.add-category-img{
+    position: relative;
+    right: 106px;
+    top: 40px;
+}
+.add-membership-validity{
+    display: grid;
+    grid-template-columns: 48% 48%;
+}
+
+/* cursor: 'pointer', width: "90px", height: "90px", borderRadius: "5px"  */
+
+

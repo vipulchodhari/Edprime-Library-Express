@@ -69,7 +69,7 @@ export const AddCategory = () => {
                     <label>Description</label><br />
                     <textarea onChange={handleChange} name='category_image' className="publisher-box publisher-description" type='text' />
                 </div>
-                <div>2
+                <div>
                 <label className="add-category-img">Category Image </label>
                 <div style={{display: "flex"}}>
                     <label htmlFor="file-input" className='add-author-img-cont'>

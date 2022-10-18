@@ -4,7 +4,7 @@ import { Dashboard } from './components/dashboard/Dashboard';
 import { Author } from './components/master/author/Author';
 import { Category } from './components/master/category/Category';
 import { Genre } from './components/master/genre/Genre';
-import { Member } from './components/member/Member';
+;
 import { Navbar } from './components/navbar/Navbar';
 import { Publisher } from './components/master/publisher/Publisher';
 import { Language } from './components/master/language/Language';
@@ -38,6 +38,11 @@ import { MembershipPlan } from './components/librarySettings/membershipplanSetti
 import { BookHealth } from './components/librarySettings/bookhealth/BookHealth';
 import { FineChargesSettings } from './components/librarySettings/fineCharges/FineChargesSettings';
 import { BookImport } from './components/books/bookImport/BookImport';
+import { ActiveMember } from './components/member/ActiveMember';
+import { MemberList } from './components/member/MemberList';
+import { AddMember } from './components/member/AddMember';
+import { AddStudent } from './components/member/AddStudent';
+import { ExpiredMembership } from './components/member/ExpiredMembership';
 
 
 function App() {
@@ -47,7 +52,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Dashboard/>}></Route>
-          <Route path='/member' element={<Member />}></Route>
           <Route path='/category' element={<Category/>}></Route>
           <Route path='/genre' element={<Genre/>}></Route>
           <Route path='/publisher' element={<Publisher/>}></Route>
@@ -91,8 +95,17 @@ function App() {
           <Route path='/membershipplan' element={<MembershipPlan/>}></Route>
           <Route path='/bookhealthcharges' element={<BookHealth/>}></Route>
           <Route path='/fine-charges' element={<FineChargesSettings/>}></Route>
-          
 
+
+               {/* -----------library Member routes -------------*/}
+           <Route path='/activemember' element={<ActiveMember/>}></Route>
+           <Route path='/memberlist' element={<MemberList/>}></Route>
+           <Route path='/addmember' element={<AddMember/>}></Route>
+           <Route path='/addstudent' element={<AddStudent/>}></Route>
+           <Route path='/expiredmembership' element={<ExpiredMembership/>}></Route>
+          
+          
+    
         </Routes>
       </div>
     </div>
