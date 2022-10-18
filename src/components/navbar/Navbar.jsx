@@ -33,6 +33,7 @@ export const Navbar = () => {
     const [openS, setOpenS] = React.useState(true);
     const [openL, setOpenL] = React.useState(true);
     const [openB, setOpenB] = React.useState(true);
+    const [openMem, setOpenMem] = React.useState(true);
     const navigate = useNavigate()
     const handleClick = () => {
         setOpenM(!openM);
@@ -51,7 +52,7 @@ export const Navbar = () => {
         setOpenB(!openB)
     }
     const handleClickMembership = () => {
-        setOpenB(!openB)
+        setOpenMem(!openMem)
     }
     const handleNavigate = (el) => {
         // console.log("receive end point", el)
@@ -205,14 +206,14 @@ export const Navbar = () => {
                     <ListItem disablePadding>
                         <ListItemButton onClick={handleClickMembership}>
                             <ListItemIcon>
-                                <MenuBookIcon className='navbar-icon d-icon2' />
+                                <PersonIcon className='navbar-icon d-icon3' />
                             </ListItemIcon>
                             <ListItemText className='navbar-icon-text' primary='Member' />
                         </ListItemButton>
                     </ListItem>
 
                     <div className='book-dropdown-cont'>
-                        <Collapse in={!openB} timeout="auto" unmountOnExit><hr />
+                        <Collapse in={!openMem} timeout="auto" unmountOnExit><hr />
                         <ListItem disablePadding>
                             <Link to='/activemember' className='link-decoration'>
                                 <List component="div" disablePadding>
@@ -221,36 +222,35 @@ export const Navbar = () => {
                             </Link>
                         </ListItem>
                         </Collapse>
-                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                        <Collapse in={!openMem} timeout="auto" unmountOnExit>
                             <Link to='/addmember' className='link-decoration'>
                                 <List component="div" disablePadding>
                                     <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Add Member' />
                                 </List>
                             </Link>
                         </Collapse>
-                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                        <Collapse in={!openMem} timeout="auto" unmountOnExit>
                             <Link to='/memberlist' className='link-decoration'>
                                 <List component="div" disablePadding>
                                     <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Member List' />
                                 </List>
                             </Link>
                         </Collapse>
-                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                        <Collapse in={!openMem} timeout="auto" unmountOnExit>
                             <Link to='/expiredmembership' className='link-decoration'>
                                 <List component="div" disablePadding>
                                     <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Expired Membership' />
                                 </List>
                             </Link>
                         </Collapse>
-                        <Collapse in={!openB} timeout="auto" unmountOnExit>
+                        <Collapse in={!openMem} timeout="auto" unmountOnExit>
                             <Link to='/addstudent' className='link-decoration'>
                                 <List component="div" disablePadding>
                                     <ListItemText className='master-text' sx={{ pl: 3.5 }} primary='Add Student' />
                                 </List>
                             </Link>
                         </Collapse>
-                        
-                        </div>
+                    </div>
 
                        
                     <ListItem disablePadding>

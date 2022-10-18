@@ -4,7 +4,6 @@ import { Dashboard } from './components/dashboard/Dashboard';
 import { Author } from './components/master/author/Author';
 import { Category } from './components/master/category/Category';
 import { Genre } from './components/master/genre/Genre';
-;
 import { Navbar } from './components/navbar/Navbar';
 import { Publisher } from './components/master/publisher/Publisher';
 import { Language } from './components/master/language/Language';
@@ -43,6 +42,7 @@ import { MemberList } from './components/member/MemberList';
 import { AddMember } from './components/member/AddMember';
 import { AddStudent } from './components/member/AddStudent';
 import { ExpiredMembership } from './components/member/ExpiredMembership';
+;
 
 
 function App() {
