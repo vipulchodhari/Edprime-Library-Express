@@ -122,7 +122,7 @@ export const Author = () => {
                                     {i + 1}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{author.title}</strong>
+                                    <strong>{author.authorTitle}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
                                     <strong>{dateFormat(author.createdAt, "mm-dd-yyyy")}</strong>

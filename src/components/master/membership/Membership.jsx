@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import '../../../styles/master.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { } from "../../../utils/common";
+import { publisherUrl } from "../../../utils/common";
 import Pagination from "react-js-pagination";
 
 export const Membership = () => {

@@ -1,5 +1,8 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { booksUrl } from "../../../utils/common";
+import dateFormat from "dateformat";
 // import TableContainer from "@material-ui/core/TableContainer";
 // import Table from "@material-ui/core/Table";
 // import TableBody from "@material-ui/core/TableBody";
@@ -20,7 +23,21 @@ const SampleData = [
 
 ];
 
-export function BookTransaction() {
+export function BookTransaction({ BookId }) {
+    const [bookTransaction, setBookTaransaction] = useState('');
+    const getData = () => {
+        // let itemData = []
+        axios.get(`${booksUrl}/transactions/${BookId}`)
+           .then((res) => {
+            setBookTaransaction(res.data.data)
+               console.log('transaction Data', res)
+            })
+    }
+    console.log('bookTransaction', bookTransaction);
+
+    useEffect(() => {
+        getData()
+    }, [])
     return (
         <div style={{ display: "block", padding: 0 }}>
             <h4></h4>
@@ -56,35 +73,33 @@ export function BookTransaction() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {SampleData.map((row) => (
-                            <TableRow key={row.columnName}>
+                        {bookTransaction? bookTransaction.map((item, i) => (
+                            <TableRow key={i}>
                                 <TableCell component="th" scope="row" className="book-item-tbody">
-                                    {row.columnName}
+                                    {i+1}
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{row.semOneMarks}</strong>
+                                    <strong>{item.userName}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{row.semTwoMarks}</strong>
+                                    <strong>{item.bookItemUniqeId.slice(-4)}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{row.semTwoMarks}</strong>
+                                    <strong>{item.createdDate}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{row.semTwoMarks}</strong>
+                                    <strong>{item.dueDate}</strong>
                                 </TableCell>
                                 <TableCell align="center">
                                         <div className={
-                                                row.semThreeMarks==="Due"?"item-due"
-                                                :row.semThreeMarks==="Panding"?"item-panding"
+                                                item.bookStatus==="Due"?"item-due"
                                                 :"item-over-due"
                                             }>
-                                            {row.semThreeMarks}
+                                            {item.bookStatus}
                                         </div>        
                                 </TableCell>
-
                             </TableRow>
-                        ))}
+                        )) : 'Data not Found'}
                     </TableBody>
                 </Table>
             </TableContainer>

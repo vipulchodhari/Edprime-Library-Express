@@ -142,7 +142,7 @@ export const AddBooks = () => {
                 <h3>Add Book</h3>
                 <div className='display-flex'>
                     <button className="author-addbtn" onClick={handleSubmit}>SAVE</button>
-                    <button className="author-addbtn" onClick={() => navigate('/category')} style={{ backgroundColor: 'rgb(246,78,96)' }}>CANCEL</button>
+                    <button className="author-addbtn" onClick={() => navigate('/book-list')} style={{ backgroundColor: 'rgb(246,78,96)' }}>CANCEL</button>
                 </div>
             </div>
             <hr />

@@ -1,10 +1,12 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import React from "react";
-  
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { booksUrl } from "../../../utils/common";
+
 function formatOurData(columnName, semOneMarks, semTwoMarks) {
   return { columnName, semOneMarks, semTwoMarks };
 }
-  
+
 const SampleData = [
   formatOurData("1", 55, 66),
   formatOurData("2", 44, 94),
@@ -12,8 +14,21 @@ const SampleData = [
   formatOurData("4", 68, 95),
   formatOurData("5", 56, 85),
 ];
-  
-export  function BookUnitItem() {
+
+export function BookUnitItem({ BookId }) {
+  const [bookItemData, setBookItemData] = useState();
+  const getData = () => {
+    axios.get(`${booksUrl}/${BookId}/book-items`)
+      .then((res) => {
+        setBookItemData(res.data)
+        console.log('book unit item Data', res)
+      })
+  }
+  console.log('bookItemData', bookItemData);
+
+  useEffect(() => {
+    getData()
+  }, [])
   return (
     <div style={{ display: "block", padding: 0 }}>
       <TableContainer component={Paper}>
@@ -31,40 +46,36 @@ export  function BookUnitItem() {
                 Book Unit item identifier
               </TableCell>
               <TableCell align="center" className="book-item-thead">
-                  Location identifier
-              </TableCell>
-
-              <TableCell align="center" className="book-item-thead">
-                  Health Condition
+                Location identifier
               </TableCell>
               <TableCell align="center" className="book-item-thead">
-                  No of Issue 
+                Health Condition
               </TableCell>
-            
-
+              <TableCell align="center" className="book-item-thead">
+                No of Issue
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {SampleData.map((row) => (
-              <TableRow key={row.columnName}>
+            {bookItemData ? bookItemData?.map((item, i) => (
+              <TableRow key={i}>
                 <TableCell component="th" scope="row" className="book-item-tbody">
-                  {row.columnName}
+                  {i+1}
                 </TableCell>
                 <TableCell align="center" className="book-item-tbody">
-                    <strong>{row.semOneMarks}</strong>
+                  <strong>{item?._id.slice(-6)}</strong>
                 </TableCell>
                 <TableCell align="center" className="book-item-tbody">
-                    <strong>{row.semOneMarks}</strong>
+                  <strong>Rack {item.locationMaster.rack}</strong>
                 </TableCell>
                 <TableCell align="center" className="book-item-tbody">
-                    <strong>{row.semOneMarks}</strong>
+                  <strong>{item?.bookHealths}</strong>
                 </TableCell>
-                <TableCell align="center"className="book-item-tbody">
-                    {row.semTwoMarks}
+                <TableCell align="center" className="book-item-tbody">
+                  {item?.bookLendings>0 ? item?.bookLendings : 0}
                 </TableCell>
-               
               </TableRow>
-            ))}
+            )) : 'kjklj'}
           </TableBody>
         </Table>
       </TableContainer>

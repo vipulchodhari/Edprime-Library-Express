@@ -15,6 +15,7 @@ export const BookDetails = () => {
     const [availableBooks, setAvailableBooks] = useState();
     const [issuedBooks, setIssuedBooks] = useState();
     const [reservations, setReservations] = useState();
+    const [scrappedBooks, setScrappedBooks] = useState();
     const params = useParams();
     // const navigate = useNavigate();
     const BookId = params.id;
@@ -32,11 +33,12 @@ export const BookDetails = () => {
                 setAvailableBooks(res.data.availableBooks)
                 setIssuedBooks(res.data.issuesBooks)
                 setReservations(res.data.totalReservation)
+                setScrappedBooks(res.data.totalScrappedBooks)
 
                 console.log("get DAta", res.data)
             });
     }
-    console.log("edit books params", bookDetails);
+    console.log("bookDetails", bookDetails);
 
     useEffect(() => {
         mydata()
@@ -83,13 +85,13 @@ export const BookDetails = () => {
                     <BookDetailsTab bookDetails={bookDetails}  />
                 </div>
                 <div className={toggle === 2 ? "content  active-content" : "content"}>
-                <BookStock totalAquired={totalAquired} availableBooks={availableBooks} issuedBooks={issuedBooks} reservations={reservations}/>
+                <BookStock totalAquired={totalAquired} availableBooks={availableBooks} issuedBooks={issuedBooks} reservations={reservations} scrappedBooks={scrappedBooks}/>
                 </div>
                 <div className={toggle === 3 ? "content  active-content" : "content"}>
-                    <BookTransaction />
+                    <BookTransaction BookId={BookId}/>
                 </div>
                 <div className={toggle === 4 ? "content  active-content" : "content"}>
-                    <BookUnitItem />
+                    <BookUnitItem BookId={BookId}/>
                 </div>
             </div>
         </div>

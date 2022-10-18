@@ -19,7 +19,7 @@ export const Editlocation = () => {
         axios.get(`${locationUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
-            setEditAuthorData(res.data.data)
+            setEditAuthorData(res.data)
         })
     }
     const handleUpload = () => {

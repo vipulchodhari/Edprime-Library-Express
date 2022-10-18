@@ -12,14 +12,14 @@ export const EditPublisher = () => {
     const authorId  = params.id;
     console.log("params", authorId);
 
-    const [editAuthorData, setEditAuthorData] = useState();
-    console.log("editAuthorData", editAuthorData);
+    const [editPublisherData, setEditPublisherData] = useState();
+    console.log("editPublisherData", editPublisherData);
 
     const getData = () => {
         axios.get(`${publisherUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
-            setEditAuthorData(res.data.data)
+            setEditPublisherData(res.data)
         })
     }
     const handleUpload = () => {
@@ -28,21 +28,21 @@ export const EditPublisher = () => {
 
     const handleChange = (e) => {
         const { name } = e.target;
-        setEditAuthorData({
-            ...editAuthorData,
+        setEditPublisherData({
+            ...editPublisherData,
             [name]: e.target.value
         })
     }
 
     const handleSubmit = () => {
         axios.put(`${publisherUrl}/${authorId}`, {
-            title: editAuthorData?.title,
-            // created_by: editAuthorData?.created_by,
-            publisher_image: editAuthorData?.publisher_image
+            title: editPublisherData?.title,
+            // created_by: editPublisherData?.created_by,
+            publisher_image: editPublisherData?.publisher_image
         })
           .then((res) => {
             console.log("edit data", res)
-            if(res.status === 204){
+            if(res.status === 200){
                 alert('Publisher Update Successfully')
 
                 navigate('/publisher')
@@ -73,13 +73,13 @@ export const EditPublisher = () => {
                     <label >Publisher Name</label><br />
                     <input 
                         className="publisher-box"
-                        value={editAuthorData?.title ?? ''}
+                        value={editPublisherData?.title ?? ''}
                         onChange={handleChange} 
                         name='title'  
                         type='text'
                         placeholder='Publisher Name' /><br />
                     <label>Description</label><br />
-                    <textarea value={editAuthorData?.publisher_image ?? ''} onChange={handleChange} name='publisher_image' className="publisher-box publisher-description" type='text' />
+                    <textarea value={editPublisherData?.publisher_image ?? ''} onChange={handleChange} name='publisher_image' className="publisher-box publisher-description" type='text' />
                    
                 </div>
                 <div style={{display: "flex"}}>

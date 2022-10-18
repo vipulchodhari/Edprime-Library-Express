@@ -19,7 +19,7 @@ export const EditAuthor = () => {
         axios.get(`${authorUrl}/${authorId}`)
           .then((res) => {
             console.log("edit data", res)
-            setEditAuthorData(res.data.data)
+            setEditAuthorData(res.data)
         })
     }
     const handleUpload = () => {

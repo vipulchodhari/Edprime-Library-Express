@@ -33,7 +33,7 @@ export const AddPublisher = () => {
         try{
             axios.post(`${publisherUrl}`,{
                 // publisher_name: text.publisher_name,
-                title: text.title,
+                publisherTitle: text.title,
                 publisher_image: text.publisher_image
             })
               .then((res) => {
