@@ -211,7 +211,6 @@ export const Navbar = () => {
                             <ListItemText className='navbar-icon-text' primary='Member' />
                         </ListItemButton>
                     </ListItem>
-
                     <div className='book-dropdown-cont'>
                         <Collapse in={!openMem} timeout="auto" unmountOnExit><hr />
                         <ListItem disablePadding>

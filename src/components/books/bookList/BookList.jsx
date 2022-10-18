@@ -16,16 +16,17 @@ export const BookList = () => {
     const getData = async () => {
         await axios.get(`${booksUrl}`)
             .then((res) => {
-                let newArr =[] 
-                res.data.data1.forEach((item,index)=>{
-                   item.totalBooks = res.data.TotalBook[index]
-                   item.availableBooks = res.data.TotalAvailableBook[index]
-                   item.issueBooks = res.data.TotalIssuesBook[index]
-                   item.scrappedBooks = res.data.TotalScrapbook[index]
-                   newArr.push(item)
-                })
-                setBooksData(newArr)
-                console.log(res.data)
+                // let newArr =[] 
+                // res.data.data1.forEach((item,index)=>{
+                //    item.totalBooks = res.data.TotalBook[index]
+                //    item.availableBooks = res.data.TotalAvailableBook[index]
+                //    item.issueBooks = res.data.TotalIssuesBook[index]
+                //    item.scrappedBooks = res.data.TotalScrapbook[index]
+                //    newArr.push(item)
+                // })
+                // setBooksData(newArr)
+                setBooksData(res.data)
+                // console.log(res.data)
             })
     }
     console.log("data", booksData);
@@ -139,13 +140,13 @@ export const BookList = () => {
                                     <strong>{book?.publisher?.publisherTitle}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{book.totalBooks}</strong>
+                                    <strong>{book.totalBookItem}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{book.issueBooks}</strong>
+                                    <strong>{book.totalIssueBookItem}</strong>
                                 </TableCell>
                                 <TableCell align="center" className="book-item-tbody">
-                                    <strong>{book.availableBooks}</strong>
+                                    <strong>{book.totalAvailableBookItem}</strong>
                                 </TableCell>
                                 <TableCell align="center">
                                     <div className={

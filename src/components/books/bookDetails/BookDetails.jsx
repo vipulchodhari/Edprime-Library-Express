@@ -11,11 +11,11 @@ import axios from "axios";
 export const BookDetails = () => {
     const [toggle, setToggle] = useState(1);
     const [bookDetails, setBookDetails] = useState();
-    const [totalAquired, setTotalAquired] = useState();
-    const [availableBooks, setAvailableBooks] = useState();
-    const [issuedBooks, setIssuedBooks] = useState();
+    // const [totalAquired, setTotalAquired] = useState();
+    // const [availableBooks, setAvailableBooks] = useState();
+    // const [issuedBooks, setIssuedBooks] = useState();
     const [reservations, setReservations] = useState();
-    const [scrappedBooks, setScrappedBooks] = useState();
+    // const [scrappedBooks, setScrappedBooks] = useState();
     const params = useParams();
     // const navigate = useNavigate();
     const BookId = params.id;
@@ -29,11 +29,11 @@ export const BookDetails = () => {
         axios.get(`http://192.100.100.54:3000/books/${BookId}`)
             .then((res) => {
                 setBookDetails(res.data.fetchData)
-                setTotalAquired(res.data.totalAquired)
-                setAvailableBooks(res.data.availableBooks)
-                setIssuedBooks(res.data.issuesBooks)
+                // setTotalAquired(res.data.totalAquired)
+                // setAvailableBooks(res.data.availableBooks)
+                // setIssuedBooks(res.data.issuesBooks)
                 setReservations(res.data.totalReservation)
-                setScrappedBooks(res.data.totalScrappedBooks)
+                // setScrappedBooks(res.data.totalScrappedBooks)
 
                 console.log("get DAta", res.data)
             });
@@ -82,10 +82,10 @@ export const BookDetails = () => {
             </div>
             <div className="book-details-tab-cont">
                 <div className={toggle === 1 ? "content  active-content" : "content"}>
-                    <BookDetailsTab bookDetails={bookDetails}  />
+                    <BookDetailsTab bookDetails={bookDetails} />
                 </div>
                 <div className={toggle === 2 ? "content  active-content" : "content"}>
-                <BookStock totalAquired={totalAquired} availableBooks={availableBooks} issuedBooks={issuedBooks} reservations={reservations} scrappedBooks={scrappedBooks}/>
+                    <BookStock reservations={reservations} bookDetails={bookDetails}/>
                 </div>
                 <div className={toggle === 3 ? "content  active-content" : "content"}>
                     <BookTransaction BookId={BookId}/>
